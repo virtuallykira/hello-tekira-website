@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekira Briscoe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Alex+Brush&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8ED;
+    --cream-warm: #F5EAD8;
+    --card-cream: #FFFDF8;
+    --ink: #000000;
+    --terracotta: #D26C28;
+    --terracotta-deep: #B04F1B;
+    --gold-bright: #FDA402;
+    --gold-bright-deep: #D98600;
+    --sky: #A7D8EC;
+    --sky-deep: #8AC0D9;
+    --sky-text: #3D7A99;
+    --sage: #7C8F5E;
+    --sage-deep: #5E6E43;
+    --stone: #55504A;
+    --stone-light: #9C9488;
+    --white: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Jost', sans-serif; line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; line-height: 1.05; letter-spacing: -0.01em; }
+  a { text-decoration: none; color: inherit; }
+  .poster { font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: 0.95; }
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
+  section { padding: 100px 32px; }
+  .wrap { max-width: 1160px; margin: 0 auto; }
+
+  /* ---------- GLOBAL NAV / TABS ---------- */
+  header { background: var(--white); position: sticky; top: 0; z-index: 200; border-bottom: 4px solid var(--terracotta); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; }
+  .logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+  .logo .role { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone-light); margin-top: 2px; font-weight: 400; }
+  .tabs { display: flex; gap: 6px; }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--stone); font-family: 'Jost', sans-serif; font-weight: 600;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 10px 18px; border-bottom: 3px solid transparent; border-radius: 4px 4px 0 0;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .tab-btn:hover { color: var(--ink); background: var(--cream-warm); }
+  .tab-btn.active { color: var(--ink); }
+  .tab-btn[data-tab="home"].active { border-color: var(--stone-light); }
+  .tab-btn[data-tab="eg"].active { border-color: var(--terracotta); }
+  .tab-btn[data-tab="sil"].active { border-color: var(--gold-bright); }
+  .tab-btn[data-tab="bookclub"].active { border-color: var(--sky-deep); }
+  .tab-btn[data-tab="vk"].active { border-color: var(--sage); }
+  .nav-toggle { display: none; background: none; border: none; color: var(--ink); font-size: 1.5rem; cursor: pointer; }
+  @media (max-width: 760px) {
+    .tabs { position: fixed; top: 64px; left: 0; right: 0; background: var(--white); flex-direction: column; display: none; padding: 10px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .tabs.open { display: flex; }
+    .nav-toggle { display: block; }
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ---------- SHARED BUTTON BASE ---------- */
+  .btn {
+    display: inline-block; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 34px; border: none; cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    transition: background 0.25s, transform 0.2s, box-shadow 0.2s; color: var(--white);
+  }
+  .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 28px rgba(0,0,0,0.24); }
+
+  /* ================= HOME TAB ================= */
+  #tab-home .home-hero {
+    background: var(--cream); color: var(--ink); text-align: center;
+    padding: 120px 32px 100px; position: relative; overflow: hidden;
+  }
+  #tab-home .home-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 15% 10%, rgba(210,108,40,0.16) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 90%, rgba(167,216,236,0.35) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  #tab-home .home-hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  #tab-home .home-eyebrow { color: var(--terracotta); }
+  #tab-home .home-hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 16px 0 20px; }
+  #tab-home .home-hero h1 .script { font-family: 'Alex Brush', cursive; color: var(--gold-bright); font-weight: 400; font-size: 1.3em; display: inline-block; margin-top: 8px; }
+  #tab-home .home-hero p { color: var(--stone); font-size: 1.05rem; max-width: 480px; margin: 0 auto; }
+
+  #tab-home .home-cards { background: var(--cream); }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 26px; }
+  .project-card {
+    background: var(--white); padding: 50px 36px; text-align: center;
+    border-top: 4px solid var(--stone-light); cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 22px 40px rgba(0,0,0,0.12); }
+  .project-card.eg { border-top-color: var(--terracotta); }
+  .project-card.sil { border-top-color: var(--gold-bright); }
+  .project-card.bookclub { border-top-color: var(--sky-deep); }
+  .project-card.vk { border-top-color: var(--sage); }
+  .project-card .tag { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+  .project-card h3 { font-size: 1.5rem; margin-bottom: 14px; }
+  .project-card p { color: var(--stone); font-size: 0.95rem; margin-bottom: 26px; }
+  .project-card .go {
+    display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 12px 26px; color: var(--white);
+    border-radius: 6px; box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .project-card:hover .go { transform: translateY(-3px) scale(1.04); box-shadow: 0 12px 24px rgba(0,0,0,0.22); }
+  .project-card.eg .go { background: var(--terracotta); }
+  .project-card.sil .go { background: var(--gold-bright); color: var(--ink); }
+  .project-card.bookclub .go { background: var(--sky-deep); color: var(--ink); }
+  .project-card.vk .go { background: var(--sage); }
+  @media (max-width: 860px) { .card-grid { grid-template-columns: 1fr; } }
+
+  #tab-home .about-inline { background: var(--cream-warm); padding: 90px 32px 100px; }
+  #tab-home .about-photo {
+    display: block; width: 220px; height: 220px; object-fit: cover; border-radius: 50%;
+    margin: 0 auto 34px; border: 4px solid var(--white); box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+  }
+  #tab-home .about-inline-card {
+    background: var(--white); padding: 48px 44px; box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--terracotta);
+  }
+  #tab-home .about-inline-card p { color: var(--stone); margin-bottom: 16px; }
+  #tab-home .about-inline-card p:last-of-type { margin-bottom: 0; }
+
+  #tab-home .social-section { background: var(--cream); padding: 80px 32px; text-align: center; }
+  #tab-home .social-head { max-width: 500px; margin: 0 auto 40px; }
+  #tab-home .social-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+  #tab-home .social-head p { color: var(--stone); margin-top: 10px; }
+  #tab-home .social-grid { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; max-width: 640px; margin: 0 auto; }
+  #tab-home .social-card {
+    background: var(--white); border-top: 4px solid var(--terracotta); padding: 26px 30px;
+    text-align: left; min-width: 220px; flex: 1; box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  #tab-home .social-card:hover { transform: translateY(-6px); box-shadow: 0 20px 36px rgba(0,0,0,0.1); }
+  #tab-home .social-card:nth-child(2) { border-top-color: var(--gold-bright); }
+  #tab-home .social-card:nth-child(3) { border-top-color: var(--sky-deep); }
+  #tab-home .social-card .platform { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone-light); margin-bottom: 6px; }
+  #tab-home .social-card .handle { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; color: var(--ink); display: block; margin-bottom: 6px; }
+  #tab-home .social-card .desc { color: var(--stone); font-size: 0.85rem; }
+  #tab-home .social-note { color: var(--stone-light); font-size: 0.85rem; font-style: italic; margin-top: 30px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  #tab-home .about-sig { font-family: 'Alex Brush', cursive; color: var(--terracotta); font-size: 1.6rem; margin-top: 22px; }
+  #tab-home .about-email { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.1); }
+  #tab-home .about-email a { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; color: var(--terracotta); }
+
+  /* ================= EXPRESSING GRACE TAB ================= */
+  #tab-eg { --accent: var(--terracotta); --accent-deep: var(--terracotta-deep); --accent2: var(--sky-deep); --accent2-deep: var(--sky-text); --accent2-bright: var(--sky-text); }
+  #tab-eg .script { font-family: 'Alex Brush', cursive; color: var(--accent); font-weight: 400; }
+  #tab-eg .eyebrow { color: var(--accent); }
+  #tab-eg .btn { background: var(--accent); }
+  #tab-eg .btn:hover { background: var(--accent-deep); }
+  #tab-eg .btn-teal { background: var(--accent2); }
+  #tab-eg .btn-teal:hover { background: var(--accent2-deep); }
+
+  #tab-eg .hero {
+    color: var(--ink); padding: 70px 32px 60px; position: relative; overflow: hidden;
+    background-image: linear-gradient(180deg, rgba(247,241,230,0.6) 0%, rgba(247,241,230,0.9) 65%, var(--cream) 100%), url('photo-eg-room2.jpg');
+    background-size: cover; background-position: center 40%;
+  }
+  #tab-eg .hero-inner { max-width: 780px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  #tab-eg .poster-card { background: var(--card-cream); color: var(--ink); max-width: 460px; margin: 0 auto; padding: 52px 40px 40px; text-align: center; border: 2px solid var(--ink); box-shadow: 10px 10px 0 var(--terracotta); }
+  #tab-eg .poster-card .poster { font-size: clamp(2.4rem, 7vw, 3.6rem); color: var(--ink); }
+  #tab-eg .poster-card .script { font-size: clamp(2.1rem, 5.5vw, 2.9rem); display: block; margin-top: -4px; }
+  #tab-eg .poster-card .poster-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent2-deep); margin-top: 18px; }
+  #tab-eg .poster-card .poster-line { font-size: 0.95rem; color: var(--stone); margin-top: 10px; font-style: italic; }
+  #tab-eg .poster-card .poster-date { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.35rem; color: var(--ink); margin-top: 24px; }
+  #tab-eg .poster-card .poster-meta { font-size: 0.85rem; color: var(--stone); margin-top: 4px; }
+  #tab-eg .poster-card .poster-ticket-note {
+    display: inline-block; margin-top: 16px; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep);
+    background: rgba(210,108,40,0.1); padding: 6px 14px; border-radius: 20px;
+  }
+  #tab-eg .hero-sub { max-width: 540px; margin: 44px auto 0; }
+  #tab-eg .hero-sub p { font-size: 1.08rem; color: var(--stone); margin-bottom: 30px; }
+  #tab-eg .hero-btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  #tab-eg .btn-outline-ink { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); box-shadow: none; }
+  #tab-eg .btn-outline-ink:hover { background: var(--ink); color: var(--white); }
+
+  #tab-eg .what-is { background: var(--cream-warm); border-top: 4px solid var(--ink); }
+  #tab-eg .what-is-head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
+  #tab-eg .what-is-head h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--ink); }
+  #tab-eg .what-is-body { max-width: 680px; margin: 0 auto; text-align: center; color: var(--stone); }
+  #tab-eg .what-is-body p { margin-bottom: 18px; }
+  #tab-eg .what-is-body p.emphasis { color: var(--ink); font-weight: 600; }
+  #tab-eg .what-is-body .scripture { font-family: 'Fraunces', serif; font-style: italic; color: var(--accent); font-size: 1.15rem; margin-top: 30px; }
+
+  #tab-eg .why { background: var(--cream); }
+  #tab-eg .why-inner { max-width: 720px; margin: 0 auto; }
+  #tab-eg .eg-gallery { background: var(--cream); padding: 0 32px 90px; }
+  #tab-eg .eg-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+  #tab-eg .eg-gallery-grid img { width: 100%; height: 340px; object-fit: cover; border-radius: 8px; box-shadow: 0 14px 30px rgba(0,0,0,0.12); }
+  #tab-eg .eg-gallery-caption { text-align: center; color: var(--stone-light); font-size: 0.85rem; font-style: italic; margin-top: 18px; }
+  @media (max-width: 700px) {
+    #tab-eg .eg-gallery-grid { grid-template-columns: 1fr; }
+    #tab-eg .eg-gallery-grid img { height: 280px; }
+  }
+  #tab-eg .why h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin: 14px 0 22px; }
+  #tab-eg .why p { color: var(--stone); font-size: 1.02rem; max-width: 600px; margin-bottom: 16px; }
+  #tab-eg .why p.sig { color: var(--ink); font-weight: 500; margin-top: 24px; }
+  #tab-eg .why .btn { margin-top: 20px; }
+
+  #tab-eg .expect { background: var(--cream-warm); }
+  #tab-eg .expect-inner { max-width: 720px; margin: 0 auto; }
+  #tab-eg .expect-inner h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); margin: 14px 0 20px; }
+  #tab-eg .expect-inner p { color: var(--stone); margin-bottom: 16px; }
+  #tab-eg .expect-list { list-style: none; margin: 26px 0; }
+  #tab-eg .expect-list li { padding: 14px 0 14px 34px; border-top: 1px solid rgba(20,17,14,0.12); position: relative; font-size: 1rem; color: var(--ink); }
+  #tab-eg .expect-list li:last-child { border-bottom: 1px solid rgba(20,17,14,0.12); }
+  #tab-eg .expect-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+  #tab-eg .expect-inner .btn { margin-top: 10px; }
+
+  #tab-eg .producer { background: var(--white); color: var(--ink); }
+  #tab-eg .producer-layout { display: flex; gap: 50px; align-items: center; max-width: 900px; margin: 0 auto; }
+  #tab-eg .producer-photo {
+    width: 260px; height: 320px; object-fit: cover; border-radius: 8px; flex-shrink: 0;
+    box-shadow: 12px 12px 0 var(--accent);
+  }
+  #tab-eg .producer-inner { max-width: 480px; }
+  @media (max-width: 760px) {
+    #tab-eg .producer-layout { flex-direction: column; text-align: center; }
+    #tab-eg .producer-photo { width: 220px; height: 270px; margin: 0 auto; }
+    #tab-eg .producer-rule { margin-left: auto; margin-right: auto; }
+  }
+  #tab-eg .producer h1.poster { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 14px 0 24px; color: var(--ink); }
+  #tab-eg .producer p { color: var(--stone); margin-bottom: 16px; }
+  #tab-eg .producer-rule { width: 60px; height: 4px; background: var(--accent); margin: 30px 0 26px; border-radius: 2px; }
+
+  #tab-eg .carry { background: var(--cream); text-align: center; }
+  #tab-eg .carry-head { max-width: 600px; margin: 0 auto 60px; }
+  #tab-eg .carry-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin: 14px 0 16px; }
+  #tab-eg .carry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  #tab-eg .carry-card { background: var(--white); padding: 46px 28px; border-top: 4px solid var(--accent); box-shadow: 0 6px 18px rgba(0,0,0,0.05); transition: transform 0.25s, box-shadow 0.25s; }
+  #tab-eg .carry-card:hover { transform: translateY(-6px); box-shadow: 0 20px 36px rgba(0,0,0,0.1); }
+  #tab-eg .carry-card:nth-child(2) { border-top-color: var(--accent2); }
+  #tab-eg .carry-card:nth-child(3) { border-top-color: var(--accent-deep); }
+  #tab-eg .carry-card h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 12px; }
+  #tab-eg .carry-card p { color: var(--stone); font-size: 0.95rem; }
+  @media (max-width: 760px) { #tab-eg .carry-grid { grid-template-columns: 1fr; } }
+
+  #tab-eg .quote-section { background: var(--accent); color: var(--white); text-align: center; }
+  #tab-eg .quote-inner { max-width: 760px; margin: 0 auto; }
+  #tab-eg .quote-inner p.q { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.4; margin-bottom: 26px; }
+  #tab-eg .quote-inner .attribution { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; }
+
+  #tab-eg .eg-flyer-section { background: var(--cream); padding: 80px 32px; }
+  #tab-eg .eg-flyer-wrap { max-width: 640px; margin: 0 auto; text-align: center; }
+  #tab-eg .eg-flyer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  #tab-eg .eg-flyer-grid img { width: 100%; border-radius: 6px; box-shadow: 0 20px 44px rgba(0,0,0,0.18); }
+  #tab-eg .eg-flyer-caption { color: var(--stone); font-size: 0.9rem; margin-top: 22px; font-style: italic; }
+  @media (max-width: 560px) { #tab-eg .eg-flyer-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; } }
+
+  #tab-eg .submit-section { background: var(--accent2); padding: 100px 32px; }
+  #tab-eg .submit-card { max-width: 720px; margin: 0 auto; background: var(--white); color: var(--ink); padding: 60px 50px; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); text-align: center; }
+  #tab-eg .submit-card .eyebrow { color: var(--accent); text-align: center; display: block; }
+  #tab-eg .submit-card h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); text-align: center; margin: 12px 0 24px; color: var(--ink); }
+  #tab-eg .deadline-banner {
+    text-align: center; background: var(--accent2); color: var(--ink); font-size: 0.9rem;
+    padding: 12px 20px; border-radius: 6px; margin-bottom: 32px;
+  }
+  #tab-eg .submit-step { margin-bottom: 26px; text-align: center; }
+  #tab-eg .submit-step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; color: var(--accent-deep); }
+  #tab-eg .submit-step p { color: var(--stone); font-size: 0.95rem; max-width: 480px; margin: 0 auto; }
+  #tab-eg .submit-card .btn { display: block; width: fit-content; margin: 30px auto 0; }
+
+  #tab-eg .join { background: var(--cream); text-align: center; }
+  #tab-eg .join h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); margin: 14px 0 20px; }
+  #tab-eg .join p { color: var(--stone); max-width: 480px; margin: 0 auto 34px; }
+  #tab-eg .join-form { display: flex; max-width: 460px; margin: 0 auto; }
+  #tab-eg .join-form input { flex: 1; padding: 16px 20px; border: 1.5px solid rgba(20,17,14,0.25); border-right: none; background: var(--white); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 0.95rem; }
+  #tab-eg .join-form input:focus { outline: none; border-color: var(--accent); }
+  #tab-eg .join-form button { border: none; background: var(--accent); color: var(--white); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 28px; cursor: pointer; }
+  #tab-eg .join-form button:hover { background: var(--accent-deep); }
+  @media (max-width: 500px) { #tab-eg .join-form { flex-direction: column; gap: 10px; } #tab-eg .join-form input { border-right: 1.5px solid rgba(20,17,14,0.25); } }
+
+  #tab-eg .eg-footer { background: var(--ink); color: var(--white); padding: 60px 32px 30px; }
+  #tab-eg .eg-footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 30px; }
+  #tab-eg .eg-footer-logo { font-family: 'Anton', sans-serif; font-size: 1.3rem; text-transform: uppercase; }
+  #tab-eg .eg-footer-logo .script { font-size: 1.15rem; margin-left: 6px; }
+  #tab-eg .eg-footer-col h4 { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone-light); margin-bottom: 14px; font-weight: 500; }
+  #tab-eg .eg-footer-col a { display: block; font-size: 0.92rem; color: rgba(255,253,249,0.85); margin-bottom: 8px; }
+  #tab-eg .eg-footer-col a:hover { color: var(--accent); }
+
+  /* ================= SOWN IN LIGHT TAB ================= */
+  #tab-sil { --gold: var(--gold-bright); --gold-deep: var(--gold-bright-deep); --olive: var(--terracotta-deep); --olive-deep: #8A3814; }
+  #tab-sil .script { font-family: 'Alex Brush', cursive; color: var(--gold-deep); font-weight: 400; }
+  #tab-sil .eyebrow { color: var(--gold-deep); }
+  #tab-sil .btn { background: var(--olive); }
+  #tab-sil .btn:hover { background: var(--olive-deep); }
+  #tab-sil .btn-gold { background: var(--gold); color: var(--ink); }
+  #tab-sil .btn-gold:hover { background: var(--gold-deep); }
+
+  #tab-sil .sil-hero {
+    text-align: center; padding: 90px 32px 70px; position: relative; overflow: hidden;
+    background-image: linear-gradient(180deg, rgba(247,241,230,0.55) 0%, rgba(247,241,230,0.88) 65%, var(--cream) 100%), url('sown-in-light-field.png');
+    background-size: cover; background-position: center 25%;
+  }
+  #tab-sil .sil-hero-inner { position: relative; z-index: 1; }
+  #tab-sil .poster-card { background: var(--card-cream); color: var(--ink); max-width: 460px; margin: 0 auto; padding: 52px 40px 40px; text-align: center; border: 2px solid var(--ink); box-shadow: 10px 10px 0 var(--gold); }
+  #tab-sil .poster-card .poster { font-size: clamp(2rem, 6vw, 3rem); color: var(--ink); }
+  #tab-sil .poster-card .script-big { font-size: clamp(2.6rem, 7vw, 3.7rem); margin: 8px 0 0; }
+  #tab-sil .poster-card .poster-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); margin-top: 18px; }
+  #tab-sil .poster-card .poster-line { font-size: 0.95rem; color: var(--stone); margin-top: 10px; font-style: italic; }
+  #tab-sil .hero-sub { max-width: 480px; margin: 40px auto 0; position: relative; z-index: 1; }
+  #tab-sil .hero-sub p { color: var(--stone); font-size: 1.05rem; margin-bottom: 26px; }
+  #tab-sil .script-big { font-family: 'Alex Brush', cursive; color: var(--gold-deep); font-size: clamp(3rem, 9vw, 5.5rem); display: block; line-height: 1; margin: 10px 0 20px; }
+
+  #tab-sil .about { background: var(--cream-warm); }
+  #tab-sil .sil-flourish { width: 44px; height: 44px; margin: 0 auto 14px; display: block; opacity: 0.9; }
+  #tab-sil .sil-flourish-light { filter: brightness(0) invert(1); opacity: 0.85; }
+  #tab-sil .about-head { text-align: center; margin-bottom: 40px; }
+  #tab-sil .about-head h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+  #tab-sil .about-head .script-big { font-size: clamp(2.8rem, 7vw, 4.4rem); }
+  #tab-sil .about-card { max-width: 720px; margin: 0 auto; background: var(--white); padding: 48px 44px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); }
+  #tab-sil .about-card h3 { font-size: 1.3rem; margin-bottom: 20px; }
+  #tab-sil .about-card p { color: var(--stone); margin-bottom: 16px; }
+  #tab-sil .about-card p:last-child { margin-bottom: 0; }
+
+  #tab-sil .pull-quote { background: linear-gradient(160deg, var(--olive) 0%, var(--olive-deep) 100%); color: var(--white); text-align: center; }
+  #tab-sil .pull-quote p.q { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.3rem, 2.6vw, 1.9rem); max-width: 760px; margin: 0 auto 20px; line-height: 1.5; }
+  #tab-sil .pull-quote .script { color: var(--white); font-size: 2.4rem; }
+
+  #tab-sil .resources-head { text-align: center; margin-bottom: 60px; }
+  #tab-sil .resources-head h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+  #tab-sil .resources-head .script-big { font-size: clamp(2.8rem, 7vw, 4.2rem); }
+  #tab-sil .res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  #tab-sil .res-card { background: var(--white); padding: 40px 30px; text-align: center; border-top: 4px solid var(--gold); box-shadow: 0 6px 18px rgba(0,0,0,0.05); transition: transform 0.25s, box-shadow 0.25s; }
+  #tab-sil .res-card:nth-child(2) { border-top-color: var(--sky-deep); }
+  #tab-sil .res-card:nth-child(3) { border-top-color: var(--terracotta); }
+  #tab-sil .res-card:hover { transform: translateY(-6px); box-shadow: 0 20px 36px rgba(0,0,0,0.1); }
+  #tab-sil .res-card-cover { padding-top: 28px; }
+  #tab-sil .res-card-cover .cover-img { width: 100%; max-width: 180px; margin: 0 auto 22px; border-radius: 4px; box-shadow: 0 12px 24px rgba(0,0,0,0.18); }
+  #tab-sil .res-card-cover p { padding: 0 4px; }
+  #tab-sil .res-card h3 { font-size: 1.15rem; font-weight: 500; margin-bottom: 12px; }
+  #tab-sil .res-card p { color: var(--stone); font-size: 0.92rem; margin-bottom: 24px; }
+  @media (max-width: 800px) { #tab-sil .res-grid { grid-template-columns: 1fr; } }
+
+  #tab-sil .coming { background: var(--olive); color: var(--white); }
+  #tab-sil .coming-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  #tab-sil .coming .eyebrow { color: var(--gold); }
+  #tab-sil .coming .script-big { color: var(--gold); }
+  #tab-sil .coming p { color: rgba(255,253,249,0.82); margin-bottom: 16px; }
+  #tab-sil .coming .btn { margin-top: 20px; }
+
+  #tab-sil .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  #tab-sil .test-card { background: var(--white); padding: 44px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.25s, box-shadow 0.25s; }
+  #tab-sil .test-card:hover { transform: translateY(-6px); box-shadow: 0 20px 36px rgba(0,0,0,0.1); }
+  #tab-sil .test-card .mark { font-family: 'Fraunces', serif; font-size: 2.6rem; color: var(--olive); line-height: 1; margin-bottom: 10px; }
+  #tab-sil .test-card:nth-child(2) .mark { color: var(--sky-deep); }
+  #tab-sil .test-card:nth-child(3) .mark { color: var(--gold); }
+  #tab-sil .test-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+  #tab-sil .test-card p { color: var(--stone); font-style: italic; font-size: 0.92rem; }
+  @media (max-width: 800px) { #tab-sil .test-grid { grid-template-columns: 1fr; } }
+
+  #tab-sil .faq { background: var(--cream-warm); border-top: 4px solid var(--ink); }
+  #tab-sil .faq-head { text-align: center; margin-bottom: 50px; }
+  #tab-sil .faq-head h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); color: var(--ink); }
+  #tab-sil .faq-head .script-big { color: var(--gold-deep); }
+  #tab-sil .faq-list { max-width: 720px; margin: 0 auto; }
+  #tab-sil .faq-item { padding: 26px 0; border-top: 1px solid rgba(0,0,0,0.12); transition: padding-left 0.25s; }
+  #tab-sil .faq-item:hover { padding-left: 10px; }
+  #tab-sil .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.12); }
+  #tab-sil .faq-item h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--gold-deep); }
+  #tab-sil .faq-item p { color: var(--stone); font-size: 0.95rem; }
+
+  #tab-sil .gram { background: var(--cream-warm); text-align: center; }
+  #tab-sil .gram .script-big { color: var(--gold-deep); }
+  #tab-sil .gram .handle { display: block; font-size: 1.05rem; color: var(--stone); margin-top: 8px; }
+  #tab-sil .gram .btn { margin-top: 26px; }
+
+  #tab-sil .newsletter { background: var(--white); color: var(--ink); }
+  #tab-sil .news-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+  #tab-sil .news-inner h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); color: var(--ink); }
+  #tab-sil .news-inner .script-big { color: var(--gold-deep); }
+  #tab-sil .news-inner p { color: var(--stone); margin: 16px 0 30px; }
+  #tab-sil .join-form { display: flex; max-width: 460px; margin: 0 auto; }
+  #tab-sil .join-form input { flex: 1; padding: 16px 20px; border: 1.5px solid rgba(0,0,0,0.2); border-right: none; background: var(--cream); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 0.95rem; border-radius: 6px 0 0 6px; }
+  #tab-sil .join-form input::placeholder { color: var(--stone-light); }
+  #tab-sil .join-form input:focus { outline: none; border-color: var(--gold); }
+  #tab-sil .join-form button { border: none; background: var(--gold); color: var(--white); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 28px; cursor: pointer; border-radius: 0 6px 6px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: background 0.2s, transform 0.2s; }
+  #tab-sil .join-form button:hover { background: var(--gold-deep); transform: translateY(-2px); }
+  @media (max-width: 500px) { #tab-sil .join-form { flex-direction: column; gap: 10px; } #tab-sil .join-form input { border-right: 1.5px solid rgba(0,0,0,0.2); border-radius: 6px; } #tab-sil .join-form button { border-radius: 6px; } }
+
+  #tab-sil .contact { background: var(--gold); color: var(--ink); }
+  #tab-sil .contact-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  #tab-sil .contact-inner h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+  #tab-sil .contact-inner .script-big { color: var(--white); }
+  #tab-sil .contact-inner p { max-width: 520px; margin: 16px auto 34px; }
+  #tab-sil .contact-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+  #tab-sil .contact-item h4 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  #tab-sil .contact-item p { margin: 0; font-size: 0.95rem; }
+
+  #tab-sil .sil-footer { background: var(--ink); color: var(--white); padding: 60px 32px 30px; }
+  #tab-sil .sil-footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 30px; }
+  #tab-sil .sil-footer-col h4 { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone-light); margin-bottom: 14px; font-weight: 500; }
+  #tab-sil .sil-footer-col a { display: block; font-size: 0.92rem; color: rgba(255,253,249,0.85); margin-bottom: 8px; }
+  #tab-sil .sil-footer-col a:hover { color: var(--gold); }
+
+  /* ================= BOOK CLUB TAB (placeholder) ================= */
+  #tab-bookclub { --plum: var(--sky-deep); --plum-deep: var(--sky-text); }
+  #tab-bookclub .bc-hero { background: var(--cream); color: var(--ink); text-align: center; padding: 100px 32px 60px; position: relative; overflow: hidden; }
+  #tab-bookclub .bc-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 10%, rgba(167,216,236,0.4) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 85%, rgba(210,108,40,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  #tab-bookclub .bc-hero-inner { position: relative; z-index: 1; }
+  #tab-bookclub .poster-card { background: var(--card-cream); color: var(--ink); max-width: 460px; margin: 0 auto; padding: 52px 40px 40px; text-align: center; border: 2px solid var(--ink); box-shadow: 10px 10px 0 var(--sky-deep); }
+  #tab-bookclub .poster-card .poster { font-size: clamp(2.4rem, 7vw, 3.6rem); color: var(--ink); }
+  #tab-bookclub .poster-card .script { font-family: 'Alex Brush', cursive; color: var(--sky-text); font-size: clamp(2.1rem, 5.5vw, 2.9rem); display: block; margin-top: -4px; font-weight: 400; }
+  #tab-bookclub .poster-card .poster-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky-text); margin-top: 18px; }
+  #tab-bookclub .poster-card .poster-line { font-size: 0.95rem; color: var(--stone); margin-top: 10px; font-style: italic; }
+  #tab-bookclub .bc-sub { max-width: 480px; margin: 40px auto 0; position: relative; z-index: 1; }
+  #tab-bookclub .bc-sub p { color: var(--stone); font-size: 1.05rem; margin-bottom: 26px; }
+
+  #tab-bookclub .gate-wrap { background: var(--cream); padding: 0 32px 120px; }
+  #tab-bookclub .gate-card {
+    max-width: 420px; margin: 0 auto; background: var(--white); color: var(--ink);
+    padding: 44px 36px; text-align: center; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-top: 4px solid var(--plum);
+  }
+  #tab-bookclub .gate-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  #tab-bookclub .gate-card p { color: var(--stone); font-size: 0.9rem; margin-bottom: 22px; }
+  #tab-bookclub .gate-form { display: flex; gap: 0; margin-bottom: 12px; }
+  #tab-bookclub .gate-form input {
+    flex: 1; padding: 14px 16px; border: 1.5px solid rgba(0,0,0,0.2); border-right: none;
+    font-family: 'Jost', sans-serif; font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  #tab-bookclub .gate-form input:focus { outline: none; border-color: var(--plum); }
+  #tab-bookclub .gate-form button {
+    border: none; background: var(--plum); color: var(--white); font-weight: 600;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 22px; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: background 0.2s;
+  }
+  #tab-bookclub .gate-form button:hover { background: var(--plum-deep); }
+  #tab-bookclub .gate-error { color: var(--terracotta-deep); font-size: 0.8rem; display: none; }
+  #tab-bookclub .gate-error.show { display: block; }
+  #tab-bookclub .member-content { display: none; }
+  #tab-bookclub .member-content.show { display: block; }
+
+  #tab-bookclub .btn { background: var(--plum); }
+  #tab-bookclub .btn:hover { background: var(--plum-deep); }
+
+  /* ---- member area sections ---- */
+  #tab-bookclub .bc-section { max-width: 760px; margin: 0 auto 60px; }
+  #tab-bookclub .bc-section-head { margin-bottom: 22px; }
+  #tab-bookclub .bc-section-head h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--ink); }
+  #tab-bookclub .bc-section-head p { color: var(--stone); font-size: 0.92rem; margin-top: 6px; }
+
+  #tab-bookclub .bc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 50px; }
+  #tab-bookclub .bc-stat { background: var(--white); border-top: 4px solid var(--plum); padding: 26px 18px; text-align: center; box-shadow: 0 6px 18px rgba(0,0,0,0.05); }
+  #tab-bookclub .bc-stat:nth-child(2) { border-top-color: var(--gold-bright); }
+  #tab-bookclub .bc-stat:nth-child(3) { border-top-color: var(--terracotta); }
+  #tab-bookclub .bc-stat .num { font-family: 'Fraunces', serif; font-weight: 600; font-size: 2rem; color: var(--ink); }
+  #tab-bookclub .bc-stat .label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: 4px; }
+  @media (max-width: 600px) { #tab-bookclub .bc-stats { grid-template-columns: 1fr; } }
+
+  #tab-bookclub .bc-current { background: var(--white); border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--plum); padding: 30px; display: flex; gap: 24px; align-items: flex-start; }
+  #tab-bookclub .bc-highlight {
+    background: var(--sky-deep); padding: 40px; border-radius: 10px;
+  }
+  #tab-bookclub .bc-highlight .bc-section-head h2 { color: var(--ink); }
+  #tab-bookclub .bc-highlight .bc-section-head p { color: rgba(0,0,0,0.6); }
+  #tab-bookclub .bc-highlight .bc-current { box-shadow: 8px 8px 0 var(--ink); }
+  #tab-bookclub .bc-gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  #tab-bookclub .bc-gallery-grid img { width: 100%; height: 260px; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
+  @media (max-width: 600px) { #tab-bookclub .bc-gallery-grid { grid-template-columns: 1fr; } #tab-bookclub .bc-gallery-grid img { height: 240px; } }
+  @media (max-width: 600px) { #tab-bookclub .bc-highlight { padding: 24px 20px; } }
+  #tab-bookclub .bc-current .cover-slot { width: 90px; height: 130px; flex-shrink: 0; background: var(--cream-warm); border: 1px dashed var(--stone-light); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--stone-light); text-align: center; padding: 6px; }
+  #tab-bookclub .bc-current img.cover-slot { object-fit: cover; border: none; }
+  #tab-bookclub .bc-current h3 { font-size: 1.2rem; margin-bottom: 4px; }
+  #tab-bookclub .bc-current .genre-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--plum-deep); background: rgba(138,56,20,0.08); padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+  #tab-bookclub .bc-current p.syn { color: var(--stone); font-size: 0.92rem; margin-bottom: 10px; }
+  #tab-bookclub .bc-current .meta-line { font-size: 0.82rem; color: var(--stone); font-weight: 600; }
+  @media (max-width: 500px) { #tab-bookclub .bc-current { flex-direction: column; align-items: center; text-align: center; } }
+
+  #tab-bookclub .bc-upcoming-list { list-style: none; }
+  #tab-bookclub .bc-upcoming-list li {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 16px 0; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.95rem;
+  }
+  #tab-bookclub .bc-upcoming-list li:last-child { border-bottom: 1px solid rgba(0,0,0,0.1); }
+  #tab-bookclub .bc-upcoming-list .u-date { font-weight: 600; color: var(--ink); min-width: 90px; }
+  #tab-bookclub .bc-upcoming-list .u-book { color: var(--stone); flex: 1; }
+  #tab-bookclub .bc-upcoming-list .u-tag { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); background: var(--plum); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  @media (max-width: 480px) {
+    #tab-bookclub .bc-upcoming-list li { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+
+  #tab-bookclub details.bc-book { background: var(--white); border: 1px solid rgba(0,0,0,0.1); margin-bottom: 10px; border-radius: 6px; overflow: hidden; border-left: 4px solid var(--sky-deep); }
+  #tab-bookclub details.bc-book:nth-of-type(2) { border-left-color: var(--gold-bright); }
+  #tab-bookclub details.bc-book:nth-of-type(3) { border-left-color: var(--terracotta); }
+  #tab-bookclub details.bc-book:nth-of-type(4) { border-left-color: var(--sky-deep); }
+  #tab-bookclub details.bc-book:nth-of-type(5) { border-left-color: var(--gold-bright); }
+  #tab-bookclub details.bc-book:nth-of-type(6) { border-left-color: var(--terracotta); }
+  #tab-bookclub details.bc-book summary {
+    list-style: none; cursor: pointer; padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+    transition: background 0.2s;
+  }
+  #tab-bookclub details.bc-book summary::-webkit-details-marker { display: none; }
+  #tab-bookclub details.bc-book summary:hover { background: var(--cream-warm); }
+  #tab-bookclub details.bc-book .cover-slot { width: 48px; height: 68px; flex-shrink: 0; background: var(--cream-warm); border: 1px dashed var(--stone-light); font-size: 0.55rem; color: var(--stone-light); display: flex; align-items: center; justify-content: center; text-align: center; }
+  #tab-bookclub details.bc-book img.cover-slot { object-fit: cover; border: none; }
+  #tab-bookclub details.bc-book .book-title-row { flex: 1; }
+  #tab-bookclub details.bc-book .book-title-row h4 { font-size: 1.02rem; font-weight: 600; margin-bottom: 3px; }
+  #tab-bookclub details.bc-book .book-title-row .genre-tag { font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--plum-deep); }
+  #tab-bookclub details.bc-book .chevron { font-size: 1.1rem; color: var(--stone-light); transition: transform 0.25s; }
+  #tab-bookclub details.bc-book[open] .chevron { transform: rotate(180deg); }
+  #tab-bookclub details.bc-book .book-body { padding: 0 20px 22px 84px; }
+  #tab-bookclub details.bc-book .book-body p { color: var(--stone); font-size: 0.92rem; margin-bottom: 10px; }
+  #tab-bookclub details.bc-book .book-body .meta-line { font-size: 0.82rem; color: var(--ink); font-weight: 600; }
+  @media (max-width: 500px) { #tab-bookclub details.bc-book .book-body { padding: 0 16px 20px 16px; } }
+
+  #tab-bookclub details.bc-news { background: var(--white); border-left: 4px solid var(--plum); margin-bottom: 10px; padding: 4px 0; }
+  #tab-bookclub details.bc-news summary { list-style: none; cursor: pointer; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  #tab-bookclub details.bc-news summary::-webkit-details-marker { display: none; }
+  #tab-bookclub details.bc-news .news-date { font-size: 0.75rem; color: var(--stone-light); white-space: nowrap; }
+  #tab-bookclub details.bc-news .news-title { font-weight: 600; flex: 1; }
+  #tab-bookclub details.bc-news .chevron { color: var(--stone-light); transition: transform 0.25s; }
+  #tab-bookclub details.bc-news[open] .chevron { transform: rotate(180deg); }
+  #tab-bookclub details.bc-news .news-body { padding: 0 20px 18px; color: var(--stone); font-size: 0.92rem; }
+
+  #tab-bookclub .bc-chat-card { background: var(--white); border: 2px dashed var(--sky-deep); padding: 34px; text-align: center; }
+  #tab-bookclub .bc-chat-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  #tab-bookclub .bc-chat-card p { color: var(--stone); font-size: 0.9rem; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  /* ================= VIRTUALLY KIRA TAB ================= */
+  #tab-vk { --vk-accent: var(--sage); --vk-accent-deep: var(--sage-deep); --vk-accent2: var(--sky-text); }
+  #tab-vk .btn { background: var(--vk-accent); }
+  #tab-vk .btn:hover { background: var(--vk-accent-deep); }
+  #tab-vk .vk-hero { text-align: center; padding: 100px 32px 50px; position: relative; overflow: hidden; }
+  #tab-vk .vk-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 10%, rgba(124,143,94,0.16) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 85%, rgba(167,216,236,0.25) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  #tab-vk .vk-hero-inner { position: relative; z-index: 1; }
+  #tab-vk .poster-card { background: var(--card-cream); color: var(--ink); max-width: 460px; margin: 0 auto; padding: 52px 40px 40px; text-align: center; border: 2px solid var(--ink); box-shadow: 10px 10px 0 var(--vk-accent); }
+  #tab-vk .poster-card .poster { font-size: clamp(2rem, 6vw, 3rem); color: var(--ink); }
+  #tab-vk .poster-card .script { font-family: 'Alex Brush', cursive; color: var(--vk-accent); font-size: clamp(2.1rem, 5.5vw, 2.9rem); display: block; margin-top: -4px; font-weight: 400; }
+  #tab-vk .poster-card .poster-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vk-accent2); margin-top: 18px; }
+  #tab-vk .poster-card .poster-line { font-size: 0.95rem; color: var(--stone); margin-top: 10px; font-style: italic; }
+
+  #tab-vk .vk-status { max-width: 460px; margin: 30px auto 0; text-align: center; position: relative; z-index: 1; }
+  #tab-vk .vk-status .badge {
+    display: inline-block; background: var(--ink); color: var(--white); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 22px; border-radius: 20px;
+  }
+  #tab-vk .vk-status-note { color: var(--stone); font-size: 0.92rem; margin-top: 16px; }
+
+  #tab-vk .vk-services { background: var(--cream-warm); }
+  #tab-vk .vk-services-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+  #tab-vk .vk-services-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+  #tab-vk .vk-services-head p { color: var(--stone); margin-top: 10px; }
+  #tab-vk .vk-list { max-width: 700px; margin: 0 auto; }
+  #tab-vk details.vk-service {
+    background: var(--white); border: 1px solid rgba(0,0,0,0.1); margin-bottom: 12px; border-radius: 6px; overflow: hidden;
+    border-left: 4px solid var(--vk-accent);
+  }
+  #tab-vk details.vk-service:nth-of-type(2) { border-left-color: var(--vk-accent2); }
+  #tab-vk details.vk-service:nth-of-type(3) { border-left-color: var(--terracotta); }
+  #tab-vk details.vk-service:nth-of-type(4) { border-left-color: var(--stone-light); }
+  #tab-vk details.vk-service summary {
+    list-style: none; cursor: pointer; padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    transition: background 0.2s;
+  }
+  #tab-vk details.vk-service summary::-webkit-details-marker { display: none; }
+  #tab-vk details.vk-service summary:hover { background: var(--cream-warm); }
+  #tab-vk details.vk-service summary h3 { font-size: 1.08rem; margin: 0; }
+  #tab-vk details.vk-service .chevron { font-size: 1.1rem; color: var(--stone-light); transition: transform 0.25s; flex-shrink: 0; }
+  #tab-vk details.vk-service[open] .chevron { transform: rotate(180deg); }
+  #tab-vk details.vk-service .vk-service-body { padding: 0 26px 24px; }
+  #tab-vk details.vk-service .vk-service-body p { color: var(--stone); font-size: 0.92rem; margin-bottom: 10px; }
+  #tab-vk details.vk-service .vk-service-body ul { margin: 10px 0 0 18px; color: var(--stone); font-size: 0.9rem; }
+  #tab-vk details.vk-service .vk-service-body ul li { margin-bottom: 6px; }
+  #tab-vk details.vk-service .vk-service-body h4 {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--vk-accent); margin: 18px 0 8px;
+  }
+  #tab-vk details.vk-service .vk-service-body h4:first-of-type { margin-top: 4px; }
+
+  #tab-vk .vk-stack { background: var(--cream); }
+  #tab-vk .vk-stack-head { text-align: center; max-width: 600px; margin: 0 auto 40px; }
+  #tab-vk .vk-stack-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+  #tab-vk .vk-stack-head p { color: var(--stone); margin-top: 10px; }
+  #tab-vk .vk-stack-groups { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 50px; }
+  #tab-vk .vk-stack-group h4 {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--vk-accent); margin-bottom: 14px;
+  }
+  #tab-vk .vk-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  #tab-vk .vk-pill {
+    background: var(--white); border: 1px solid rgba(0,0,0,0.12); color: var(--ink);
+    font-size: 0.85rem; padding: 7px 14px; border-radius: 20px;
+  }
+  @media (max-width: 600px) { #tab-vk .vk-stack-groups { grid-template-columns: 1fr; } }
+
+  #tab-vk .vk-why { background: linear-gradient(160deg, var(--vk-accent) 0%, var(--vk-accent-deep) 100%); color: var(--white); }
+  #tab-vk .vk-why-inner { max-width: 640px; margin: 0 auto; }
+  #tab-vk .vk-why h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); color: var(--white); margin-bottom: 20px; }
+  #tab-vk .vk-why p { color: rgba(255,255,255,0.78); margin-bottom: 14px; }
+
+  #tab-vk .vk-contact { background: var(--cream); text-align: center; }
+  #tab-vk .vk-contact h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); margin-bottom: 14px; }
+  #tab-vk .vk-contact p { color: var(--stone); max-width: 460px; margin: 0 auto 24px; }
+  #tab-vk .vk-contact .email-link { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.2rem; color: var(--vk-accent); }
+
+  /* ---------- MOBILE REFINEMENTS ---------- */
+  /* ---------- DYNAMIC HEADERS ---------- */
+  .dyn-heading {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    display: inline-block; position: relative; padding-bottom: 14px;
+  }
+  .dyn-heading.in-view { opacity: 1; transform: translateY(0); }
+  .dyn-heading::after {
+    content: ''; position: absolute; left: 0; bottom: 0; height: 4px; width: 0; border-radius: 2px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold-bright));
+    transition: width 0.7s ease 0.2s;
+  }
+  .dyn-heading.in-view::after { width: 56px; }
+  .dyn-heading.center::after { left: 50%; transform: translateX(-50%); }
+  .dyn-heading.center.in-view::after { width: 56px; }
+
+  @media (max-width: 600px) {
+    section { padding: 60px 20px; }
+    .nav-inner { padding: 16px 20px; }
+    .logo { font-size: 0.95rem; }
+    .btn { padding: 14px 26px; font-size: 0.72rem; width: 100%; text-align: center; }
+    #tab-home .home-hero { padding: 90px 20px 70px; }
+    #tab-eg .poster-card { padding: 40px 24px 32px; }
+    #tab-eg .submit-card { padding: 36px 22px; }
+    #tab-sil .about-card { padding: 34px 26px; }
+    .card-grid { gap: 18px; }
+  }
+  @media (max-width: 400px) {
+    .btn { padding: 13px 20px; letter-spacing: 0.1em; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#" onclick="showTab('home'); return false;" class="logo" style="cursor:pointer;">Tekira Briscoe<span class="role">Poet / Author / Producer</span></a>
+    <div class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="home">Home</button>
+      <button class="tab-btn" data-tab="eg">Expressing Grace</button>
+      <button class="tab-btn" data-tab="sil">Sown in Light</button>
+      <button class="tab-btn" data-tab="bookclub">Book Club</button>
+      <button class="tab-btn" data-tab="vk">Virtually Kira</button>
+    </div>
+    <button class="nav-toggle" id="navToggle">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ HOME TAB ============ -->
+<div class="tab-panel active" id="tab-home">
+  <section class="home-hero">
+    <div class="home-hero-inner">
+      <div class="eyebrow home-eyebrow">Welcome</div>
+      <h1>Writer. Storyteller.<br><span class="script">Steward of it all.</span></h1>
+      <p>This is home for everything I create and build, the book, the room, and the systems behind it all.</p>
+    </div>
+  </section>
+
+  <section class="home-cards">
+    <div class="wrap card-grid">
+      <div class="project-card eg" onclick="showTab('eg')">
+        <div class="tag">Live Testimony Gathering</div>
+        <h3>Expressing Grace</h3>
+        <p>An intimate evening where real people share true, first-person testimonies of faith, not a sermon, just a room that listens.</p>
+        <span class="go">Enter &rarr;</span>
+      </div>
+      <div class="project-card sil" onclick="showTab('sil')">
+        <div class="tag">Poetry / Faith / Memoir</div>
+        <h3>Sown in Light</h3>
+        <p>A poetic guide to discovering your faith, reclaiming your truth, and growing in grace. My debut collection.</p>
+        <span class="go">Enter &rarr;</span>
+      </div>
+      <div class="project-card bookclub" onclick="showTab('bookclub')">
+        <div class="tag">Community / Reading</div>
+        <h3>Book Club</h3>
+        <p>A gathering place for readers to dig deeper into the stories, questions, and faith we're all working through.</p>
+        <span class="go">Enter &rarr;</span>
+      </div>
+      <div class="project-card vk" onclick="showTab('vk')">
+        <div class="tag">Operations Management &amp; Project Support</div>
+        <h3>Virtually Kira</h3>
+        <p>Support so small businesses, entrepreneurs, and nonprofits can feel grace, flow, and ease in the back end of their work.</p>
+        <span class="go">Enter &rarr;</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-inline">
+    <div class="wrap" style="max-width: 720px;">
+      <div class="eyebrow" style="color: var(--terracotta); text-align:center;">The Person Behind It All</div>
+      <h2 style="text-align:center; margin: 12px 0 30px;">About Me</h2>
+      <img src="Tekiraiwthbook.jpg" alt="Tekira Briscoe holding Sown in Light" class="about-photo">
+      <div class="about-inline-card">
+        <p>I'm Tekira Briscoe, a wife, a homeschool mom of two, and someone who's spent her whole life loving stories in every form they come in.</p>
+        <p>I grew up in Bakersfield, California, in the church, and I still love it today. I've been married for fifteen years, and these days home is Los Angeles, filled with schoolwork, ministry, and more notebooks than any one person needs.</p>
+        <p>Those are the facts about me. The part that surprises most people is my personality.</p>
+        <p>I'm a self-proclaimed introvert, no matter how many people try to argue me out of it. I've just learned how to turn it on when obedience calls for it. Lately, obedience has been calling me into things far outside my comfort zone: building community, standing on stages, and gathering rooms full of strangers. Everything connected to my name right now is something God asked for, not something I planned, and I'm grateful for every bit of it.</p>
+        <p>So welcome to my corner of the internet, where I don't niche down. I simply do what God calls me to do next and trust that, somehow, it all belongs together.</p>
+        <p>I'm a blogger, writer, poet, and published author, currently working on my first novel and my third book. I'm also an operations strategist and project manager. For the past seven years, I've helped small businesses, entrepreneurs, and nonprofits build stronger systems and organize the back end of their businesses through <em>Virtually Kira</em>.</p>
+        <p>You may have found me through <em>Sown in Light</em>, my debut poetry collection. Or maybe you're here because of the <em>Sown in Light Book Club</em>, where I get to read alongside a community of readers, primarily exploring books by Black women authors. My newest community offering is <em>Expressing Grace</em>, a live storytelling series created as a place for testimony, because some things are only meant to be spoken out loud.</p>
+        <p>If there's one thread running through all of it, it's stewardship: stewarding stories, stewarding community, stewarding businesses, and stewarding the gifts God has entrusted to me. My hope is that each one creates a space where people can grow, connect, and encounter God. Whatever the form, may it all point back to Him and give Him glory.</p>
+        <p>I'm so glad you're here.</p>
+        <p>Let's walk this out together.</p>
+        <div class="about-sig">Tekira</div>
+        <div class="about-email">
+          <a href="mailto:hello@sowninlight.com">hello@sowninlight.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <div class="wrap">
+      <div class="social-head">
+        <div class="eyebrow" style="color: var(--terracotta);">Let's Connect</div>
+        <h2>Follow Along</h2>
+        <p>Where to find me between updates to this site.</p>
+      </div>
+      <div class="social-grid">
+        <a href="https://www.instagram.com/kira.writes.now/" target="_blank" class="social-card">
+          <div class="platform">Instagram</div>
+          <span class="handle">@kira.writes.now</span>
+          <div class="desc">Writing, poetry, and Sown in Light updates.</div>
+        </a>
+        <a href="https://www.instagram.com/naturallykira/" target="_blank" class="social-card">
+          <div class="platform">Instagram</div>
+          <span class="handle">@naturallykira</span>
+          <div class="desc">Life, faith, and everything else.</div>
+        </a>
+        <a href="https://www.facebook.com/kiranaturally/" target="_blank" class="social-card">
+          <div class="platform">Facebook</div>
+          <span class="handle">Kira Naturally</span>
+          <div class="desc">Updates and community, all in one place.</div>
+        </a>
+      </div>
+      <p class="social-note">Expressing Grace doesn't have its own page yet, for now, updates on the show post through the accounts above.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ EXPRESSING GRACE TAB ============ -->
+<div class="tab-panel" id="tab-eg">
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="poster-card">
+      <div class="poster">Expressing</div>
+      <div class="script">Grace</div>
+      <div class="poster-eyebrow">A Live Testimony Gathering</div>
+      <div class="poster-line">Seven voices. One mic. One room full of proof that God is still moving.</div>
+      <div class="poster-date">Sat / Nov 7</div>
+      <div class="poster-meta">Sims Library of Poetry &middot; Los Angeles, CA</div>
+      <div class="poster-ticket-note">Ticket Required for Entry</div>
+    </div>
+    <div class="hero-sub">
+      <p>Real people. Real testimonies. Told out loud, before a room that came to listen with care.</p>
+      <div class="hero-btn-row">
+        <a href="https://www.eventbrite.com/e/1991895516109?aff=oddtdtcreator" target="_blank" class="btn">Get Tickets &rarr;</a>
+        <a href="https://airtable.com/appUYy4kLsK15bu2U/shrYOYphqqqTEci2i" target="_blank" class="btn btn-outline-ink">Submit Your Testimony</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eg-flyer-section">
+  <div class="wrap eg-flyer-wrap">
+    <div class="eg-flyer-grid">
+      <img src="photo-eg-flyer.jpg" alt="Expressing Grace event flyer">
+      <img src="photo-eg-flyer2.jpg" alt="Expressing Grace event flyer, printed">
+    </div>
+    <p class="eg-flyer-caption">Tickets available starting August 9th.</p>
+  </div>
+</section>
+
+<section class="what-is">
+  <div class="wrap">
+    <div class="what-is-head">
+      <div class="eyebrow">What Is This</div>
+      <h2>Testimony isn't just on the program.<br>It is the program.</h2>
+    </div>
+    <div class="what-is-body">
+      <p>Expressing Grace is a curated live testimony gathering where real people share first-person stories of faith, deliverance, healing, and God's grace. The testimonies are spoken aloud, before an audience that has come to listen with care.</p>
+      <p>This is not a sermon, a conference or a church service.</p>
+      <p class="emphasis">This is testimony. The way it was always meant to be shared.</p>
+      <p>The room is intimate. The atmosphere is reverent. And every story in it is true.</p>
+      <p class="scripture">"And they overcame him by the blood of the Lamb and by the word of their testimony." &mdash; Revelation 12:11</p>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap why-inner">
+    <div>
+      <div class="eyebrow">Why It Exists</div>
+      <h2>Get in the room.</h2>
+      <p>I grew up in a church where praise and testimony service were inseparable. You didn't do one without the other.</p>
+      <p>Somewhere along the way, that started to fade.</p>
+      <p>But I kept finding myself in spaces where people would beautifully and bravely share pieces of their lives and the room would just connect. And I kept thinking: if people can stand up and talk about heartbreak, grief, and motherhood, how much more can we stand up and talk about what God has done?</p>
+      <p>Testimony isn't just your story. It's an eyewitness account of what God has done. It fortifies faith, yours and everyone else's in the room. We are built up by what God has done for each other.</p>
+      <p>So God pressed me to build the space I was missing.</p>
+      <p>Expressing Grace was born out of obedience, built in faith, and confirmed by every person who has sat in that room.</p>
+      <p class="sig">&mdash; Tekira Briscoe, Founder</p>
+      <a href="https://www.eventbrite.com/e/1991895516109?aff=oddtdtcreator" target="_blank" class="btn">Join the Room</a>
+    </div>
+  </div>
+</section>
+
+<section class="eg-gallery">
+  <div class="wrap">
+    <div class="eg-gallery-grid">
+      <img src="photo-eg-cast-1.jpg" alt="Expressing Grace cast at Sims Library of Poetry">
+      <img src="photo-eg-cast-2.jpg" alt="Expressing Grace cast, Volume One">
+    </div>
+    <p class="eg-gallery-caption">The cast of Expressing Grace Volume One, at Sims Library of Poetry.</p>
+  </div>
+</section>
+
+<section class="expect">
+  <div class="wrap expect-inner">
+    <div class="eyebrow">What to Expect</div>
+    <h2>A room where testimony is the whole point.</h2>
+    <p>You walk in, you settle in, you receive. Mocktails are flowing, charcuterie is out, and the people around you came with open hearts. When the first speaker takes the mic, something shifts. By the time the last testimony lands, you will leave reminded of who God is and what He still does.</p>
+    <p>This is what the evening holds:</p>
+    <ul class="expect-list">
+      <li>Live testimonies, read first-person before a live audience</li>
+      <li>Curated music between each speaker</li>
+      <li>An intimate setting: 40 to 50 seats</li>
+      <li>A short Q&amp;A after the final testimony, if the spirit permits</li>
+      <li>Mocktails and charcuterie served throughout</li>
+    </ul>
+    <p>And a community that shows up for each other.</p>
+  </div>
+</section>
+
+<section class="producer">
+  <div class="wrap producer-layout">
+    <img src="tekiraseriousfacewith.jpg" alt="Tekira Briscoe" class="producer-photo">
+    <div class="producer-inner">
+      <div class="eyebrow">Meet the Producer</div>
+      <h1 class="poster">Tekira<br>Briscoe</h1>
+      <p>I'm a writer, a poet, a published author, a storyteller. I build community, creating spaces for people to gather, connect, and be heard.</p>
+      <p>Because the bad news is loud. Loud enough to make us forget we have an advocate in Christ Jesus. Loud enough to make us forget the person sitting right next to us might carry the exact testimony we needed to hear.</p>
+      <p>You never know what God is still doing in someone beside you.</p>
+      <p>He is still in the miracle-working business.</p>
+      <p>I'm just here to build the room and get out the way so God can continue to show He is God.</p>
+      <div class="producer-rule"></div>
+      <a href="https://www.instagram.com/naturallykira/" target="_blank" class="btn">@NaturallyKira</a>
+    </div>
+  </div>
+</section>
+
+<section class="carry">
+  <div class="wrap">
+    <div class="carry-head">
+      <div class="eyebrow">What You Carry Out</div>
+      <h2>You won't leave the way you came in.</h2>
+    </div>
+    <div class="carry-grid">
+      <div class="carry-card"><h3>Faith Fortified</h3><p>Real stories of grace under real pressure, told by people who lived them.</p></div>
+      <div class="carry-card"><h3>Community Found</h3><p>A room full of people who came in strangers and leave recognizing each other.</p></div>
+      <div class="carry-card"><h3>God Glorified</h3><p>Every testimony points back to the same source, spoken plainly, without a program.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="wrap quote-inner">
+    <p class="q">I didn't expect to feel so seen by strangers. I left that room lighter than I walked in.</p>
+    <div class="attribution">Danaugh Covington, Attendee</div>
+  </div>
+</section>
+
+<section class="submit-section">
+  <div class="submit-card">
+    <span class="eyebrow">Do You Have a Testimony?</span>
+    <h2>How to Submit</h2>
+    <div class="deadline-banner">Submissions are open now through <strong>July 26</strong> for the Nov 7 gathering.</div>
+    <div class="submit-step"><h3>1. It has to be yours</h3><p>A personal, first-person account of what God has done in your life. Not a broad reflection, a real moment. Something specific. Something He brought you through.</p></div>
+    <div class="submit-step"><h3>2. Length matters</h3><p>Your written testimony should be 750–800 words, which reads aloud at approximately 6–8 minutes. You can bring your notes. You do not have to memorize it.</p></div>
+    <div class="submit-step"><h3>3. Rehearsals are required</h3><p>Cast members must attend all rehearsals and the performance date. All of them. This is non-negotiable.</p></div>
+    <div class="submit-step"><h3>4. Come as you are</h3><p>This is not a sermon. Not a speech. Not a performance. It's a testimony. Your voice, your story, your God.</p></div>
+    <a href="https://airtable.com/appUYy4kLsK15bu2U/shrYOYphqqqTEci2i" target="_blank" class="btn">Submit Your Testimony</a>
+  </div>
+</section>
+
+<section class="join">
+  <div class="wrap" style="max-width: 560px;">
+    <div class="eyebrow">Stay Connected</div>
+    <h2>Let's continue to glorify God together.</h2>
+    <p>Stay up to date on all things Expressing Grace, upcoming events, announcements, and what God continues to do through this work.</p>
+    <a href="https://sown-in-light.kit.com/82ea3e2015" target="_blank" class="btn">Join the Email List</a>
+  </div>
+</section>
+
+<footer class="eg-footer">
+  <div class="eg-footer-inner">
+    <div class="eg-footer-logo">Expressing <span class="script">Grace</span></div>
+    <div style="display:flex; gap:40px; flex-wrap:wrap;">
+      <div class="eg-footer-col">
+        <h4>Explore</h4>
+        <a href="#" onclick="document.querySelector('#tab-eg .why').scrollIntoView({behavior:'smooth'}); return false;">Why It Exists</a>
+        <a href="#" onclick="document.querySelector('#tab-eg .expect').scrollIntoView({behavior:'smooth'}); return false;">What to Expect</a>
+      </div>
+      <div class="eg-footer-col">
+        <h4>Tekira's World</h4>
+        <a href="#" onclick="showTab('sil'); return false;">Sown in Light</a>
+        <a href="#" onclick="showTab('bookclub'); return false;">Book Club</a>
+        <a href="#" onclick="showTab('vk'); return false;">Virtually Kira</a>
+        <a href="#" onclick="goToAbout(); return false;">About Me</a>
+      </div>
+      <div class="eg-footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@sowninlight.com">hello@sowninlight.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ============ SOWN IN LIGHT TAB ============ -->
+<div class="tab-panel" id="tab-sil">
+
+<section class="sil-hero">
+  <div class="sil-hero-inner">
+    <div class="poster-card">
+      <div class="poster">Sown in</div>
+      <div class="script-big">Light</div>
+      <div class="poster-eyebrow">Poetry by Tekira Briscoe</div>
+      <div class="poster-line">A poetic guide to discovering your faith, reclaiming your truth, and growing in grace.</div>
+    </div>
+    <div class="hero-sub">
+      <p>Your next favorite, a memoir of doubt, tradition, and transformation, told one poem at a time.</p>
+      <a href="https://www.mamaskitchenpress.com/store/p/sown-in-light" target="_blank" class="btn btn-gold">Order the Book</a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-head">
+      <img src="SIL Sunflower LOGO.png" alt="" class="sil-flourish">
+      <div>Hi! I'm</div>
+      <span class="script-big">Tekira</span>
+    </div>
+    <div class="about-card">
+      <h3>Find Light in Every Layer of Your Story</h3>
+      <p>I'm Tekira Briscoe, poet, author, and woman of faith navigating life's questions one prayer, one poem at a time. My debut collection, <em>Sown in Light</em>, is a poetic memoir of my journey through doubt, tradition, and transformation. It's for the girl who grew up in church but didn't always feel seen. It's for the woman still healing and holding on to hope.</p>
+      <p>Through my writing, I share stories that explore identity, grief, anger, and grace, because I believe healing comes when we're honest. Whether you're wrestling with your faith, reclaiming your voice, or just trying to bloom in your own time, you're not alone here.</p>
+      <p>This isn't just about poetry, it's about truth-telling, about honoring your questions, and finding your way back to God in a language that feels like your own.</p>
+      <p>Let's walk this out together, soft, strong, and sown in light.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pull-quote">
+  <div class="wrap">
+    <p class="q">"I don't have all the answers, but I've learned to let the questions lead me closer to God, and to myself."</p>
+    <div class="script">Tekira</div>
+  </div>
+</section>
+
+<section class="resources">
+  <div class="wrap">
+    <div class="resources-head">
+      <div class="eyebrow">My</div>
+      <span class="script-big">Resources</span>
+    </div>
+    <div class="res-grid">
+      <div class="res-card res-card-cover"><img src="cover-sell-sheet.png" alt="Sell Sheet preview" class="cover-img"><h3>Sell Sheet</h3><p>A quick overview of the book for press, bookstores, and event hosts. Includes synopsis, ISBN, author info, and more.</p><a href="https://canva.link/yj716459b4copyf" target="_blank" class="btn">Download</a></div>
+      <div class="res-card res-card-cover"><img src="cover-guided-journal.png" alt="Guided Journal preview" class="cover-img"><h3>Guided Journal</h3><p>A companion to the book filled with writing prompts, reflection questions, and space to explore your own story.</p><a href="https://canva.link/vjrulcq0z8b1vwp" target="_blank" class="btn">Download</a></div>
+      <div class="res-card res-card-cover"><img src="sown-in-light-cover.png" alt="Sown in Light book cover" class="cover-img"><p>A poetic memoir of faith, identity, and healing, told by a girl growing up in church and finding her voice.</p><a href="https://www.mamaskitchenpress.com/store/p/sown-in-light" target="_blank" class="btn btn-gold">Order Now</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="coming">
+  <div class="wrap coming-inner">
+    <img src="SIL Girl LOGO.png" alt="" class="sil-flourish sil-flourish-light">
+    <div class="eyebrow">Coming</div>
+    <span class="script-big">Soon</span>
+    <h2 style="font-size: 1.4rem; margin-bottom: 18px;">A New Chapter Is Blooming</h2>
+    <p>I'm working on something new, and this one is for the ones still in the in-between.</p>
+    <p>If <em>Sown in Light</em> spoke to your heart, this next release will meet you in your next season. More poems. More truth. More of the journey we're all still walking through.</p>
+    <p>Right now, I'm in the writing room pouring out what God is showing me, and when it's time, I want you to be the first to know.</p>
+    <p>Join the mailing list for early access, exclusive pre-order gifts, and behind-the-scenes updates as the next chapter unfolds.</p>
+    <a href="#" onclick="document.querySelector('#tab-sil .newsletter').scrollIntoView({behavior:'smooth'}); return false;" class="btn btn-gold">Join the List</a>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap test-grid">
+    <div class="test-card"><div class="mark">&ldquo;</div><h3>Exactly What I Needed</h3><p>This book met me right in the middle of my questions and my faith. Tekira captured feelings I didn't even have words for. I'll be holding onto this one for a long time.</p></div>
+    <div class="test-card"><div class="mark">&ldquo;</div><h3>Truly Transformational</h3><p>I've read it more than once, and I keep coming back to it. These poems reminded me that I'm not alone in my wrestle with faith and identity.</p></div>
+    <div class="test-card"><div class="mark">&ldquo;</div><h3>Beautifully Written &amp; So Real</h3><p>Tekira's words are raw, honest, and full of grace. I cried, reflected, and felt seen. This isn't just a poetry book, it's a healing experience.</p></div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-head">
+      <div class="eyebrow" style="color: var(--stone-light);">Frequently</div>
+      <span class="script-big">Asked</span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><h3>What inspired you to become an author?</h3><p>I've loved poetry and books since I was a little girl, it was always my favorite subject in school. I've had a deep respect for words and storytelling for as long as I can remember, and I thought it would be so special to one day become an author. That dream never left.</p></div>
+      <div class="faq-item"><h3>What topics do you love to write about?</h3><p>I love writing about God, healing, womanhood, and the beauty and weight of everyday life. The struggles, the joy, the complexity, I believe it's all worth capturing. Life is layered, and I try to write in a way that honors every part of it.</p></div>
+      <div class="faq-item"><h3>Will you be writing more books?</h3><p>Yes! I'm definitely working on more books. I'm still deciding if the next one will be a poetry collection or a novel, but stay tuned!</p></div>
+      <div class="faq-item"><h3>Do you offer speaking?</h3><p>Yes! I offer speaking, hosting, guided workshops, open mics, and poetry sessions. If you're planning an event and would like to collaborate, feel free to reach out through my contact page.</p></div>
+      <div class="faq-item"><h3>How can I stay updated on your work?</h3><p>You can join my mailing list or follow me on social media for updates, new releases, behind-the-scenes moments, and resources.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gram">
+  <div class="wrap">
+    <div class="eyebrow">On the</div>
+    <span class="script-big">Gram</span>
+    <span class="handle">@naturallykira</span>
+    <a href="https://www.instagram.com/naturallykira/" target="_blank" class="btn">Follow Along</a>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="wrap news-inner">
+    <div class="eyebrow" style="color: var(--stone-light);">My</div>
+    <span class="script-big">Newsletter</span>
+    <h2 style="font-size: 1.2rem; margin-bottom: 6px;">Stay Connected. Stay Inspired.</h2>
+    <p>Join my list for honest encouragement, free resources, and behind-the-scenes updates, written with love and sent straight to your inbox. Whether you're healing, rebuilding your faith, or rediscovering your voice, this space is for you.</p>
+    <p style="margin-top: -14px;">No spam. Just soul-deep reflections and gentle reminders to keep going.</p>
+    <form class="join-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Joined ✓';">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap contact-inner">
+    <div>Get In</div>
+    <span class="script-big">Touch</span>
+    <p>Whether you have a question, a speaking request, collaboration idea, or just want to say hello, I'm always grateful to connect with you. Every message is read with care, and I do my best to respond as soon as possible.</p>
+    <div class="contact-grid">
+      <div class="contact-item"><h4>Email</h4><p>hello@sowninlight.com</p></div>
+      <div class="contact-item"><h4>Address</h4><p>Los Angeles, CA</p></div>
+      <div class="contact-item"><h4>Instagram</h4><p>@naturallykira</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="sil-footer">
+  <div class="sil-footer-inner">
+    <div class="footer-logo" style="font-family:'Fraunces',serif; font-size:1.2rem;">Tekira Briscoe</div>
+    <div style="display:flex; gap:40px; flex-wrap:wrap;">
+      <div class="sil-footer-col">
+        <h4>Explore</h4>
+        <a href="#" onclick="document.querySelector('#tab-sil .about').scrollIntoView({behavior:'smooth'}); return false;">About the Author</a>
+        <a href="#" onclick="document.querySelector('#tab-sil .resources-head').parentElement.scrollIntoView({behavior:'smooth'}); return false;">My Resources</a>
+      </div>
+      <div class="sil-footer-col">
+        <h4>Tekira's World</h4>
+        <a href="#" onclick="showTab('eg'); return false;">Expressing Grace</a>
+        <a href="#" onclick="showTab('bookclub'); return false;">Book Club</a>
+        <a href="#" onclick="showTab('vk'); return false;">Virtually Kira</a>
+        <a href="#" onclick="goToAbout(); return false;">About Me</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ============ BOOK CLUB TAB (placeholder + gate) ============ -->
+<div class="tab-panel" id="tab-bookclub">
+  <section class="bc-hero">
+    <div class="bc-hero-inner">
+      <div class="poster-card">
+        <div class="poster">The Book</div>
+        <div class="script">Club</div>
+        <div class="poster-eyebrow">A Reading Community</div>
+        <div class="poster-line">Stories, questions, and faith, worked through one chapter at a time.</div>
+      </div>
+      <div class="bc-sub">
+        <p>A gathering place for readers to dig into stories, ask real questions, and grow in faith together.</p>
+      </div>
+    </div>
+  </section>
+  <div class="gate-wrap">
+    <div class="gate-card" id="bcGateCard">
+      <h3>Enter Your Access Code</h3>
+      <p>This space is for current book club members. If you're part of the group, enter the code you were given.</p>
+      <div class="gate-form">
+        <input type="text" id="bcCodeInput" placeholder="Access code" maxlength="20">
+        <button onclick="checkBookClubCode()">Enter</button>
+      </div>
+      <div class="gate-error" id="bcGateError">That code didn't match, try again, or reach out to Tekira.</div>
+    </div>
+    <div class="member-content" id="bcMemberContent">
+
+      <div class="bc-section">
+        <div class="bc-stats">
+          <div class="bc-stat"><div class="num">6</div><div class="label">Books Read</div></div>
+          <div class="bc-stat"><div class="num">Sep 2025</div><div class="label">First Meeting</div></div>
+          <div class="bc-stat"><div class="num">Aug 15</div><div class="label">Next Meeting</div></div>
+        </div>
+        <p style="text-align:center; color: var(--stone-light); font-size: 0.85rem; margin-top: -30px;">September 19 marks one year of book club! More details to come.</p>
+      </div>
+
+      <div class="bc-section bc-highlight">
+        <div class="bc-section-head">
+          <h2>Currently Reading</h2>
+          <p>What we're in the middle of right now.</p>
+        </div>
+        <div class="bc-current">
+          <img class="cover-slot" src="cover-before-streetlights.png" alt="Before the Street Lights Come On cover">
+          <div>
+            <div class="genre-tag">Contemporary Fiction</div>
+            <h3>Before the Street Lights Come On</h3>
+            <p class="syn">Ellie, Sloane, Courtney, and Shy have been best friends since they were teenage girls, walking through every season of womanhood together, first kisses, college, weddings, divorces, childbirth, and everything in between. Life and distance have pulled them in different directions, but the holidays bring the foursome back together for their annual reunion. This time, old wounds resurface, forcing each of them to face one another, and themselves. It's a story about the power of real friendship, the kind that carries you when the people in your life let you down, when your kids test you, when work wears you thin, and everything feels like too much at once. By Ashley Antoinette.</p>
+            <div class="meta-line">Discussion: Saturday, August 15 &middot; 3:00-6:00 PM &middot; At Darlene's House</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-head">
+          <h2>From Our Gatherings</h2>
+          <p>The actual humans behind all these dropdowns.</p>
+        </div>
+        <div class="bc-gallery-grid">
+          <img src="bookclub1.JPG" alt="Sown in Light Book Club gathering">
+          <img src="bookclub2.JPG" alt="Sown in Light Book Club gathering">
+        </div>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-head">
+          <h2>Upcoming Meetings</h2>
+          <p>Dates locked in. Mark your calendars.</p>
+        </div>
+        <ul class="bc-upcoming-list">
+          <li><span class="u-date">Aug 15</span><span class="u-book">Before the Street Lights Come On, discussion</span><span class="u-tag">Confirmed</span></li>
+          <li><span class="u-date">Sep 19</span><span class="u-book">The Revelation of Dionne Daphne by Mara Brock Akil, our 1-year anniversary meeting</span><span class="u-tag">Confirmed</span></li>
+          <li><span class="u-date">Oct 24</span><span class="u-book">Last meeting of the year, book TBD</span><span class="u-tag">Confirmed</span></li>
+        </ul>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-head">
+          <h2>Our Reading History</h2>
+          <p>Every book we've read as a group since we started in September 2025, most recent first. Tap one to see the synopsis and discussion date.</p>
+        </div>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-pair-of-aces.png" alt="A Pair of Aces cover">
+            <div class="book-title-row">
+              <h4>A Pair of Aces</h4>
+              <div class="genre-tag">Historical Fiction</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>In 1930s New York, a trailblazing prosecutor and a savvy madam find themselves on opposite sides of the law, yet team up to bring down the city's most notorious mob boss, Lucky Luciano. From the bestselling authors of The Personal Librarian, it's a story about two women using every tool available to them in a world built to keep them powerless. By Marie Benedict and Victoria Christopher Murray.</p>
+            <div class="meta-line">Discussed: July 11, 2026</div>
+          </div>
+        </details>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-deacon-king-kong.png" alt="Deacon King Kong cover">
+            <div class="book-title-row">
+              <h4>Deacon King Kong</h4>
+              <div class="genre-tag">Contemporary Fiction &middot; Club DNF</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>In 1969 Brooklyn, an aging deacon known as Sportcoat shoots the neighborhood's drug dealer in broad daylight for reasons no one, including himself, fully understands. What follows is a sprawling, big-hearted tangle of church ladies, cops, gangsters, and neighbors, all caught up in the fallout. By James McBride. We didn't finish this one as a club.</p>
+            <div class="meta-line">Picked: April 29, 2026</div>
+          </div>
+        </details>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-kin.png" alt="KIN cover">
+            <div class="book-title-row">
+              <h4>KIN</h4>
+              <div class="genre-tag">Historical Fiction</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>Best friends Vernice and Annie grow up together in Honeysuckle, Louisiana, but are set on very different paths. Vernice, raised by a fiercely protective aunt after her mother's death, leaves for Spelman College and marries into an affluent, well-connected family. Annie, abandoned by her mother as a child, becomes consumed with finding her, a search that pulls her into danger, love, and a fight for her own survival. By Tayari Jones.</p>
+            <div class="meta-line">Discussed: April 24, 2026</div>
+          </div>
+        </details>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-silent-patient.png" alt="The Silent Patient cover">
+            <div class="book-title-row">
+              <h4>The Silent Patient</h4>
+              <div class="genre-tag">Psychological Thriller</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>Alicia Berenson seems to have it all: a career as a celebrated painter, a marriage to a successful photographer, a beautiful home. Then one night she shoots her husband five times and never speaks another word. Theo Faber, a psychotherapist obsessed with her case, takes a job at the facility where she's held in hopes of getting her to talk, and uncovers a mystery far more disturbing than anyone anticipated. By Alex Michaelides.</p>
+            <div class="meta-line">Discussed: March 6, 2026</div>
+          </div>
+        </details>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-neighbor-favor.png" alt="The Neighbor Favor cover">
+            <div class="book-title-row">
+              <h4>The Neighbor Favor</h4>
+              <div class="genre-tag">Romance</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>Lily Greene, shy and stuck in a publishing job that isn't the one she wants, has spent months exchanging emails with her favorite fantasy author under a pen name, never expecting anything more than an escape from her disappointing reality. When the correspondence turns into real feelings, Lily has to decide whether to reveal her true identity, especially once she realizes her anonymous pen pal is much closer to home than she ever imagined. By Kristina Forest.</p>
+            <div class="meta-line">Discussed: January 31, 2026</div>
+          </div>
+        </details>
+
+        <div style="text-align:center; color: var(--stone-light); font-size: 0.85rem; font-style: italic; padding: 14px 0;">We paused for the holidays in November and December.</div>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-american-marriage.png" alt="An American Marriage cover">
+            <div class="book-title-row">
+              <h4>An American Marriage</h4>
+              <div class="genre-tag">Contemporary Fiction</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>Newlyweds Celestial and Roy are just beginning their life together when Roy is wrongfully convicted and sentenced to twelve years in prison for a crime he didn't commit. As Roy fights the system from behind bars, Celestial turns to Andre, her childhood best friend, for support, and their bond deepens in ways that complicate everything once Roy's conviction is unexpectedly overturned five years later. By Tayari Jones.</p>
+            <div class="meta-line">Discussed: October 18, 2025</div>
+          </div>
+        </details>
+
+        <details class="bc-book">
+          <summary>
+            <img class="cover-slot" src="cover-house-of-eve.png" alt="The House of Eve cover">
+            <div class="book-title-row">
+              <h4>The House of Eve</h4>
+              <div class="genre-tag">Historical Fiction</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>Set in the 1950s, this follows Eleanor Quarles, a scholarship student at Howard University who falls for a young man from a prominent Black family, and Ruby Pearsall, a driven high schooler dreaming of an Ivy League future while caring for her mentally ill mother. Both must navigate family expectations, class tensions within the Black community, and the sacrifices required to build the futures they want, even as their choices threaten to derail everything they've worked for. By Sadeqa Johnson.</p>
+            <div class="meta-line">Discussed: September 6, 2025 &middot; Our first meeting</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-head">
+          <h2>News &amp; Updates</h2>
+          <p>Anything the group needs to know, in one place.</p>
+        </div>
+        <details class="bc-news">
+          <summary><span class="news-title">We're becoming a literary community</span><span class="news-date">Jul 1, 2026</span><span class="chevron">&#9662;</span></summary>
+          <div class="news-body">We've partnered with Reparations Club, a Black-owned independent bookstore, who's offering our group a discount on future picks. We also recently met two authors, including Kyra Davis Lurie, who've offered to join us for a future discussion once we've read their books. And mark your calendar: we're attending Mara Brock Akil's book signing on Thursday, July 9 at 7 PM, hosted by Reparations Club at the California African American Museum. It's free to attend, though parking is paid. Her book is one I'd love for us to read soon.</div>
+        </details>
+        <details class="bc-news">
+          <summary><span class="news-title">A few changes to how book club works</span><span class="news-date">Jun 24, 2026</span><span class="chevron">&#9662;</span></summary>
+          <div class="news-body">Coordinating votes, feedback forms, and potlucks got to be a lot, so I'm simplifying things for a while. I'll select and announce the books myself instead of putting it to a vote. We're also moving away from potluck-style gatherings, feel free to just bring your own dinner, snacks, or drinks. Please still RSVP when I send the attendance request, it really helps me plan.</div>
+        </details>
+        <details class="bc-news">
+          <summary><span class="news-title">One year together this September</span><span class="news-date">Jul 2026</span><span class="chevron">&#9662;</span></summary>
+          <div class="news-body">Our first meeting was September 6, 2025, discussing The House of Eve. We're almost at our one-year mark, thank you for reading alongside me.</div>
+        </details>
+      </div>
+
+      <div style="text-align:center; margin-top: 40px;">
+        <a href="#" onclick="showTab('home'); return false;" class="btn" style="background: var(--stone-light);">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ VIRTUALLY KIRA TAB ============ -->
+<div class="tab-panel" id="tab-vk">
+
+  <section class="vk-hero">
+    <div class="vk-hero-inner">
+      <div class="poster-card">
+        <div class="poster">Virtually</div>
+        <div class="script">Kira</div>
+        <div class="poster-eyebrow">Operations Manager &amp; Project Support</div>
+        <div class="poster-line">Support so you can feel grace, flow, and ease in your business.</div>
+      </div>
+    </div>
+    <div class="vk-status">
+      <span class="badge">Currently Closed for New Projects</span>
+      <p class="vk-status-note">My project calendar reopens for Q4 on October 1. I'll start taking discovery calls in early September to fill that calendar, so if you want in, now's the time to get on my books.</p>
+      <a href="https://calendar.app.google/mQtx13JquZgcbgs9A" target="_blank" class="btn" style="margin-top: 18px;">Book a Call</a>
+    </div>
+  </section>
+
+  <section class="vk-services">
+    <div class="wrap">
+      <div class="vk-services-head">
+        <div class="eyebrow" style="color: var(--vk-accent);">What I Offer</div>
+        <h2>From full department overhauls to the day-to-day details, I build operations that actually hold.</h2>
+        <p>Tap any service below for specifics.</p>
+      </div>
+      <div class="vk-list">
+
+        <details class="vk-service">
+          <summary>
+            <h3>Operations Management</h3>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="vk-service-body">
+            <p>Ongoing, hands-on management of how your business actually runs, not just the tasks, but the systems underneath them. This is for founders and leadership teams who need someone owning the operations long-term.</p>
+            <h4>This is for you if</h4>
+            <ul>
+              <li>You need ongoing management of your operations, not just help with one task</li>
+              <li>You're leading a team or department that needs stronger systems and follow-through</li>
+              <li>You want someone who can zoom out on strategy and zoom in on execution</li>
+              <li>You need a steady hand keeping things running long-term, not just during a single project</li>
+            </ul>
+            <h4>What's Included</h4>
+            <ul>
+              <li>Workflow and systems oversight, team coordination and accountability</li>
+              <li>Regular check-ins to keep everything on track</li>
+              <li>Ongoing process improvement as your business grows</li>
+              <li>A recurring report summarizing progress and next steps</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="vk-service">
+          <summary>
+            <h3>Project Support</h3>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="vk-service-body">
+            <p>Dedicated support for the specific projects and overhauls that need expert attention to get done right, think a full department rebuild, a systems migration, or a launch that has to go right the first time.</p>
+            <h4>This is for you if</h4>
+            <ul>
+              <li>You have a specific project, launch, or overhaul that needs dedicated attention</li>
+              <li>You need a full department or systems rebuild handled start to finish</li>
+              <li>You're planning a launch or event and need someone managing the moving pieces</li>
+              <li>You want a defined scope, a clear timeline, and a clean handoff when it's done</li>
+            </ul>
+            <h4>What's Included</h4>
+            <ul>
+              <li>Custom project plans with clear objectives, deliverables, and timelines</li>
+              <li>Full department or systems overhaul management</li>
+              <li>Launch planning and virtual event coordination</li>
+              <li>A final report summarizing outcomes and recommendations</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="vk-service">
+          <summary>
+            <h3>Strategic Consulting</h3>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="vk-service-body">
+            <p>Big-picture thinking for the decisions that shape where your business goes next. This is where we step back, look at the whole operation, and build a real, actionable plan, not just more advice.</p>
+            <h4>This is for you if</h4>
+            <ul>
+              <li>You're feeling overwhelmed by the complexity of running your business</li>
+              <li>You don't know where to start or what's actually holding your operations back</li>
+              <li>You need a strategic action plan to help you stay motivated and move forward</li>
+              <li>You want a clearer picture of your business's needs, gaps, and future goals</li>
+            </ul>
+            <h4>What's Included</h4>
+            <ul>
+              <li>A focused strategy session covering your biggest pain points, processes, and systems</li>
+              <li>A documented strategy plan built around what we uncover</li>
+              <li>Clear, actionable next steps you can move on right away</li>
+              <li>An option to bring me on for implementation, if you want the support</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="vk-service">
+          <summary>
+            <h3>Virtual Assistant Services</h3>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="vk-service-body">
+            <p>Day-to-day execution support for the details that quietly eat up your time. Perfect on its own for solo entrepreneurs and micro-business owners, or layered alongside either service above.</p>
+            <h4>This is for you if</h4>
+            <ul>
+              <li>You're struggling to meet deadlines because your business lacks organization</li>
+              <li>You're spending too much time on tasks that don't generate revenue, or aren't in your zone of genius</li>
+              <li>You don't need a full-time assistant, just a few reliable extra hours each week</li>
+              <li>You'd like a fresh, experienced perspective on your business's backend</li>
+            </ul>
+            <h4>What's Included</h4>
+            <ul>
+              <li>Email and calendar management, research, and data entry</li>
+              <li>Document creation, proofreading, and digital file organization</li>
+              <li>Client journey management and CRM upkeep</li>
+              <li>A weekly standing meeting plus regular email updates</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="vk-stack">
+    <div class="wrap">
+      <div class="vk-stack-head">
+        <div class="eyebrow" style="color: var(--vk-accent);">Tools of the Trade</div>
+        <h2>My Tech Stack</h2>
+        <p>The platforms and tools I work in most, so you know what to expect if we work together.</p>
+      </div>
+      <div class="vk-stack-groups">
+        <div class="vk-stack-group">
+          <h4>Project &amp; Task Management</h4>
+          <div class="vk-pills">
+            <span class="vk-pill">Asana</span>
+            <span class="vk-pill">ClickUp</span>
+            <span class="vk-pill">Monday.com</span>
+            <span class="vk-pill">Trello</span>
+            <span class="vk-pill">Airtable</span>
+            <span class="vk-pill">Notion</span>
+          </div>
+        </div>
+        <div class="vk-stack-group">
+          <h4>Communication</h4>
+          <div class="vk-pills">
+            <span class="vk-pill">Slack</span>
+            <span class="vk-pill">Zoom</span>
+            <span class="vk-pill">Outlook</span>
+            <span class="vk-pill">Proton</span>
+            <span class="vk-pill">Meta</span>
+          </div>
+        </div>
+        <div class="vk-stack-group">
+          <h4>Email &amp; Marketing</h4>
+          <div class="vk-pills">
+            <span class="vk-pill">Flodesk</span>
+            <span class="vk-pill">Mailchimp</span>
+            <span class="vk-pill">Kit</span>
+            <span class="vk-pill">MailerLite</span>
+          </div>
+        </div>
+        <div class="vk-stack-group">
+          <h4>Websites &amp; Forms</h4>
+          <div class="vk-pills">
+            <span class="vk-pill">Wix</span>
+            <span class="vk-pill">Squarespace</span>
+            <span class="vk-pill">Typeform</span>
+          </div>
+        </div>
+        <div class="vk-stack-group">
+          <h4>Design &amp; Docs</h4>
+          <div class="vk-pills">
+            <span class="vk-pill">Canva</span>
+            <span class="vk-pill">Google Workspace</span>
+          </div>
+        </div>
+        <div class="vk-stack-group">
+          <h4>AI Tools</h4>
+          <div class="vk-pills">
+            <span class="vk-pill">Claude</span>
+            <span class="vk-pill">ChatGPT</span>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center; color: var(--stone-light); font-size: 0.85rem; margin-top: 30px; font-style: italic;">And more, I'm always learning new tools if it means serving you better.</p>
+    </div>
+  </section>
+
+  <section class="vk-why">
+    <div class="wrap vk-why-inner">
+      <h2>You deserve seamless support that works as hard as you do.</h2>
+      <p>Too many women business owners waste their time and energy trying to manage every part of their business without the right support. When you work with Virtually Kira, you gain a trusted ally who goes the extra mile to help you streamline your operations.</p>
+      <p>You won't find quick fixes or impersonal service here. Virtually Kira is rooted in ease, efficiency, and integrity. Your focus is running your business and serving your clients. My focus is creating personalized operational solutions that make your business run smoothly.</p>
+    </div>
+  </section>
+
+  <section class="vk-contact">
+    <div class="wrap" style="max-width: 500px;">
+      <h2>Let's Talk Soon</h2>
+      <p>My calendar for Q4 opens October 1, and I'm booking discovery calls starting in September. Reach out or grab a spot below, whichever's easier.</p>
+      <a href="mailto:hello@virtuallykira.com" class="email-link">hello@virtuallykira.com</a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const BOOK_CLUB_CODE = 'SILBCLUB';
+  function checkBookClubCode() {
+    const input = document.getElementById('bcCodeInput');
+    const entered = input.value.trim().toUpperCase();
+    const errorEl = document.getElementById('bcGateError');
+    if (entered === BOOK_CLUB_CODE) {
+      document.getElementById('bcGateCard').style.display = 'none';
+      document.getElementById('bcMemberContent').classList.add('show');
+      errorEl.classList.remove('show');
+    } else {
+      errorEl.classList.add('show');
+    }
+  }
+  document.getElementById('bcCodeInput') && document.getElementById('bcCodeInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkBookClubCode();
+  });
+</script>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const panel = document.getElementById('tab-' + name);
+    panel.classList.add('active');
+    document.querySelector('.tab-btn[data-tab="' + name + '"]').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.getElementById('tabs').classList.remove('open');
+    setTimeout(() => {
+      panel.querySelectorAll('.dyn-heading').forEach(h => h.classList.add('in-view'));
+    }, 80);
+  }
+  function goToAbout() {
+    showTab('home');
+    setTimeout(() => {
+      document.querySelector('#tab-home .about-inline').scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+  }
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => showTab(btn.dataset.tab));
+  });
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('tabs').classList.toggle('open');
+  });
+
+  // Dynamic header reveal on scroll
+  function initDynamicHeadings(root) {
+    const centeredParents = ['home-hero-inner','what-is-head','expect-inner','carry-head','resources-head','coming-inner','about-head','faq-head'];
+    const headings = root.querySelectorAll('h1, h2');
+    headings.forEach(h => {
+      if (h.closest('header')) return;
+      h.classList.add('dyn-heading');
+      const parent = h.parentElement;
+      if (parent && (parent.style.textAlign === 'center' || centeredParents.some(c => parent.classList.contains(c)) || getComputedStyle(parent).textAlign === 'center')) {
+        h.classList.add('center');
+      }
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    root.querySelectorAll('.dyn-heading').forEach(h => observer.observe(h));
+  }
+  initDynamicHeadings(document);
+</script>
+
+</body>
+</html>
