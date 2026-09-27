@@ -1574,6 +1574,17 @@
 </script>
 
 <script>
+  const TAB_PATHS = {
+    eg: '/expressing-grace',
+    bookclub: '/book-club'
+  };
+  function tabForPath(pathname) {
+    const clean = pathname.replace(/\/$/, '') || '/';
+    for (const tab in TAB_PATHS) {
+      if (TAB_PATHS[tab] === clean) return tab;
+    }
+    return null;
+  }
   function showTab(name, options) {
     const updateUrl = !options || options.updateUrl !== false;
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1587,11 +1598,10 @@
       panel.querySelectorAll('.dyn-heading').forEach(h => h.classList.add('in-view'));
     }, 80);
     if (updateUrl) {
-      const onEgPath = window.location.pathname === '/expressing-grace' || window.location.pathname === '/expressing-grace/';
-      if (name === 'eg' && !onEgPath) {
-        history.pushState({ tab: 'eg' }, '', '/expressing-grace');
-      } else if (name !== 'eg' && onEgPath) {
-        history.pushState({ tab: name }, '', '/');
+      const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+      const targetPath = TAB_PATHS[name] || '/';
+      if (currentPath !== targetPath) {
+        history.pushState({ tab: name }, '', targetPath);
       }
     }
   }
@@ -1608,8 +1618,7 @@
     document.getElementById('tabs').classList.toggle('open');
   });
   window.addEventListener('popstate', () => {
-    const onEgPath = window.location.pathname === '/expressing-grace' || window.location.pathname === '/expressing-grace/';
-    showTab(onEgPath ? 'eg' : 'home', { updateUrl: false });
+    showTab(tabForPath(window.location.pathname) || 'home', { updateUrl: false });
   });
 
   // Dynamic header reveal on scroll
@@ -1636,10 +1645,10 @@
   }
   initDynamicHeadings(document);
 
-  // Land directly on the Expressing Grace tab when arriving via /expressing-grace
-  const startPath = window.location.pathname;
-  if (startPath === '/expressing-grace' || startPath === '/expressing-grace/') {
-    showTab('eg', { updateUrl: false });
+  // Land directly on the matching tab when arriving via a deep link like /book-club
+  const startTab = tabForPath(window.location.pathname);
+  if (startTab) {
+    showTab(startTab, { updateUrl: false });
   }
 </script>
 
