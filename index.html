@@ -426,28 +426,6 @@
   #tab-bookclub .bc-sub p { color: var(--stone); font-size: 1.05rem; margin-bottom: 26px; }
 
   #tab-bookclub .gate-wrap { background: var(--cream); padding: 0 32px 120px; }
-  #tab-bookclub .gate-card {
-    max-width: 420px; margin: 0 auto; background: var(--white); color: var(--ink);
-    padding: 44px 36px; text-align: center; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-top: 4px solid var(--plum);
-  }
-  #tab-bookclub .gate-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-  #tab-bookclub .gate-card p { color: var(--stone); font-size: 0.9rem; margin-bottom: 22px; }
-  #tab-bookclub .gate-form { display: flex; gap: 0; margin-bottom: 12px; }
-  #tab-bookclub .gate-form input {
-    flex: 1; padding: 14px 16px; border: 1.5px solid rgba(0,0,0,0.2); border-right: none;
-    font-family: 'Jost', sans-serif; font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase;
-  }
-  #tab-bookclub .gate-form input:focus { outline: none; border-color: var(--plum); }
-  #tab-bookclub .gate-form button {
-    border: none; background: var(--plum); color: var(--white); font-weight: 600;
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 22px; cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: background 0.2s;
-  }
-  #tab-bookclub .gate-form button:hover { background: var(--plum-deep); }
-  #tab-bookclub .gate-error { color: var(--terracotta-deep); font-size: 0.8rem; display: none; }
-  #tab-bookclub .gate-error.show { display: block; }
-  #tab-bookclub .member-content { display: none; }
-  #tab-bookclub .member-content.show { display: block; }
 
   #tab-bookclub .btn { background: var(--plum); }
   #tab-bookclub .btn:hover { background: var(--plum-deep); }
@@ -1106,16 +1084,7 @@
     </div>
   </section>
   <div class="gate-wrap">
-    <div class="gate-card" id="bcGateCard">
-      <h3>Enter Your Access Code</h3>
-      <p>This space is for current book club members. If you're part of the group, enter the code you were given.</p>
-      <div class="gate-form">
-        <input type="text" id="bcCodeInput" placeholder="Access code" maxlength="20">
-        <button onclick="checkBookClubCode()">Enter</button>
-      </div>
-      <div class="gate-error" id="bcGateError">That code didn't match, try again, or reach out to Tekira.</div>
-    </div>
-    <div class="member-content" id="bcMemberContent">
+    <div id="bcMemberContent">
 
       <div class="bc-section">
         <div class="bc-stats">
@@ -1570,25 +1539,6 @@
   </section>
 
 </div>
-
-<script>
-  const BOOK_CLUB_CODE = 'SILBCLUB';
-  function checkBookClubCode() {
-    const input = document.getElementById('bcCodeInput');
-    const entered = input.value.trim().toUpperCase();
-    const errorEl = document.getElementById('bcGateError');
-    if (entered === BOOK_CLUB_CODE) {
-      document.getElementById('bcGateCard').style.display = 'none';
-      document.getElementById('bcMemberContent').classList.add('show');
-      errorEl.classList.remove('show');
-    } else {
-      errorEl.classList.add('show');
-    }
-  }
-  document.getElementById('bcCodeInput') && document.getElementById('bcCodeInput').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') checkBookClubCode();
-  });
-</script>
 
 <script>
   const TAB_PATHS = {
