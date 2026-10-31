@@ -500,6 +500,13 @@
   #tab-bookclub details.bc-book .book-body .meta-line { font-size: 0.82rem; color: var(--ink); font-weight: 600; }
   @media (max-width: 500px) { #tab-bookclub details.bc-book .book-body { padding: 0 16px 20px 16px; } }
 
+  #tab-bookclub .read-schedule { margin: 4px 0 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }
+  #tab-bookclub .read-schedule .rs-row { display: flex; justify-content: space-between; gap: 10px; padding: 9px 14px; font-size: 0.85rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  #tab-bookclub .read-schedule .rs-row:last-child { border-bottom: none; }
+  #tab-bookclub .read-schedule .rs-head { background: var(--cream-warm); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.68rem; color: var(--stone); }
+  #tab-bookclub .read-schedule .rs-row:not(.rs-head) span:first-child { color: var(--ink); font-weight: 600; }
+  #tab-bookclub .read-schedule .rs-row:not(.rs-head) span:last-child { color: var(--stone); }
+
   #tab-bookclub details.bc-news { background: var(--white); border-left: 4px solid var(--plum); margin-bottom: 10px; padding: 4px 0; }
   #tab-bookclub details.bc-news summary { list-style: none; cursor: pointer; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   #tab-bookclub details.bc-news summary::-webkit-details-marker { display: none; }
@@ -1130,7 +1137,8 @@
         </div>
         <ul class="bc-upcoming-list">
           <li><span class="u-date">Oct 24</span><span class="u-book">The True Confessions of First Lady Freeman, discussion &middot; 3:00 PM &middot; Location TBD &middot; last meeting of the year</span><span class="u-tag">Confirmed</span></li>
-          <li><span class="u-date">Jan 9</span><span class="u-book">The Draft, discussion &middot; our first meeting of 2027</span><span class="u-tag">Confirmed</span></li>
+          <li><span class="u-date">Jan 16</span><span class="u-book">The Draft, discussion &middot; author Nell Ledbetter joining us &middot; our first meeting of 2027</span><span class="u-tag">Confirmed</span></li>
+          <li><span class="u-date">Feb 26</span><span class="u-book">Though I Stumble, discussion &middot; 7:00-10:00 PM</span><span class="u-tag">Confirmed</span></li>
         </ul>
 
         <details class="bc-book" open style="margin-top: 18px;">
@@ -1143,9 +1151,42 @@
             <span class="chevron">&#9662;</span>
           </summary>
           <div class="book-body">
-            <p>Four strangers step off an elevator and into a Los Angeles they no longer recognize, the city desolate and the world transformed in an instant, with no explanation for what's happened or why. As they push through the wreckage searching for answers, danger closes in from every direction and one question grows louder: are they the only ones left alive? Book One of The Elevator series, a gripping, adrenaline-fueled tale of survival, trust, and resilience. By Nell Ledbetter.</p>
-            <div class="meta-line">Discussion: Saturday, January 9, 2027 &middot; Our first meeting of the new year</div>
+            <p>Four strangers step off an elevator and into a Los Angeles they no longer recognize, the city desolate and the world transformed in an instant, with no explanation for what's happened or why. As they push through the wreckage searching for answers, danger closes in from every direction and one question grows louder: are they the only ones left alive? Book One of The Elevator series, a gripping, adrenaline-fueled tale of survival, trust, and resilience. By Nell Ledbetter &middot; 340 pages.</p>
+            <p style="font-weight: 600; color: var(--ink);">Start reading around November 22, so there's extra time to enjoy the holidays.</p>
+            <div class="read-schedule">
+              <div class="rs-row rs-head"><span>Read By</span><span>Pages</span></div>
+              <div class="rs-row"><span>December 5</span><span>1&ndash;85</span></div>
+              <div class="rs-row"><span>December 19</span><span>86&ndash;170</span></div>
+              <div class="rs-row"><span>January 2</span><span>171&ndash;255</span></div>
+              <div class="rs-row"><span>January 15</span><span>256&ndash;340</span></div>
+            </div>
+            <div class="meta-line">Discussion: Saturday, January 16, 2027 &middot; Nell Ledbetter will be joining our discussion! &middot; Time &amp; location coming soon</div>
             <a href="https://www.nellledbetter.com/visual-lit?wix-vod-comp-id=comp-ml5sjcbu" target="_blank" rel="noopener" class="btn" style="margin-top: 14px;">Watch the Promo Video</a>
+          </div>
+        </details>
+
+        <details class="bc-book" style="margin-top: 18px;">
+          <summary>
+            <img class="cover-slot" src="though-i-stumble.png" alt="Though I Stumble cover">
+            <div class="book-title-row">
+              <h4>Though I Stumble</h4>
+              <div class="genre-tag">Christian Fiction &middot; A Promises of God Novel</div>
+            </div>
+            <span class="chevron">&#9662;</span>
+          </summary>
+          <div class="book-body">
+            <p>Four women in different seasons of life converge in St. Louis for a women's ministry conference built around a single charge: pursue Christ in hot pursuit, no matter what's in the way. Stephanie arrives spiritually desolate after tragedy in her new hometown and an inattentive husband push her to the edge. Treva, still grieving her husband of twenty-two years, faces fresh heartbreak as her daughter's struggles come to light. Jillian expects a weekend of inspiration, but a discovery about her husband leaves her anxious about going home. And Treva's daughter Faith, her heart quietly drifted from God, shows up with her boyfriend in tow, unsure how to find her way back. A story about the promise that though we stumble, we don't have to fall. By Kim Cash Tate &middot; 432 pages.</p>
+            <p style="font-weight: 600; color: var(--ink);">Start reading January 17, 2027.</p>
+            <div class="read-schedule">
+              <div class="rs-row rs-head"><span>Read By</span><span>Pages</span></div>
+              <div class="rs-row"><span>January 23</span><span>1&ndash;72</span></div>
+              <div class="rs-row"><span>January 30</span><span>73&ndash;144</span></div>
+              <div class="rs-row"><span>February 6</span><span>145&ndash;216</span></div>
+              <div class="rs-row"><span>February 13</span><span>217&ndash;288</span></div>
+              <div class="rs-row"><span>February 20</span><span>289&ndash;360</span></div>
+              <div class="rs-row"><span>February 25</span><span>361&ndash;432</span></div>
+            </div>
+            <div class="meta-line">Discussion: Friday, February 26, 2027 &middot; 7:00-10:00 PM &middot; Location coming soon</div>
           </div>
         </details>
       </div>
